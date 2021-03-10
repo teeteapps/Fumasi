@@ -1,0 +1,116 @@
+﻿@model DBL.Entities.Customeroneoffagreement
+@using DBL.Helpers;
+@{
+    EncryptDecrypt sec = new EncryptDecrypt();
+}
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="AllagreementsModalLabel">Oneoff Agreement Details</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Prepaidagreement" asp-controller="Agreements" method="post" enctype="multipart/form-data">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <input asp-for="Custcode" hidden />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label asp-for="Agreementdesc"></label>
+                    <input asp-for="Agreementdesc" class="form-control form-control-sm" />
+                    <span asp-validation-for="Agreementdesc" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label asp-for="Agreementtype"></label>
+                    <input asp-for="Agreementtype" class="form-control form-control-sm" />
+                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label asp-for="Loyaltygrouping"></label>
+                    <input asp-for="Loyaltygrouping" class="form-control form-control-sm" />
+                    <span asp-validation-for="Loyaltygrouping" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label asp-for="Limitvalue"></label>
+                    <input asp-for="Limitvalue" class="form-control form-control-sm" />
+                    <span asp-validation-for="Limitvalue" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label asp-for="Graceperiod"></label>
+                    <input asp-for="Graceperiod" class="form-control form-control-sm" />
+                    <span asp-validation-for="Graceperiod" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label asp-for="Billingbasis"></label>
+                    <input asp-for="Billingbasis" class="form-control form-control-sm" />
+                    <span asp-validation-for="Billingbasis" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label asp-for="Startdate"></label>
+                    <input asp-for="Startdate" class="form-control form-control-sm" />
+                    <span asp-validation-for="Startdate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label asp-for="Enddate"></label>
+                    <input asp-for="Enddate" class="form-control form-control-sm" />
+                    <span asp-validation-for="Enddate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label asp-for="Pricelistcode"></label>
+                    <input asp-for="Pricelistcode" class="form-control form-control-sm" />
+                    <span asp-validation-for="Pricelistcode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label asp-for="Discountcode"></label>
+                    <input asp-for="Discountcode" class="form-control form-control-sm" />
+                    <span asp-validation-for="Discountcode" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Notes"></label>
+                    <textarea asp-for="Notes" class="form-control form-control-sm"></textarea>
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Agreementdoc"></label>
+                    <input asp-for="Agreementdoc" class="form-control form-control-sm" />
+                    <span asp-validation-for="Agreementdoc" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Save">
+    </div>
+</form>

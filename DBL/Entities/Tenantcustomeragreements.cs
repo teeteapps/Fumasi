@@ -9,7 +9,7 @@ namespace DBL.Entities
 	public class Customeroneoffagreement
 	{
 		public long Agreementcode { get; set; }
-		public long Customercode { get; set; }
+		public long Custcode { get; set; }
 		public long Agreementtype { get; set; }
 		public long Loyaltygrouping { get; set; }
 		public string Agreementdesc { get; set; }
@@ -30,7 +30,7 @@ namespace DBL.Entities
 	public class Customerrecurrentagreement
 	{
 		public long Agreementcode { get; set; }
-		public long Customercode { get; set; }
+		public long Custcode { get; set; }
 		public long Agreementtype { get; set; }
 		public long Loyaltygrouping { get; set; }
 		public string Agreementdesc { get; set; }

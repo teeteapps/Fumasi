@@ -21,7 +21,7 @@ namespace DBL.Repositories
             {
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Tenantcode", entity.Customercode);
+                parameters.Add("@Tenantcode", entity.Custcode);
                
                 parameters.Add("@Datecreated", entity.Datecreated);
                 parameters.Add("@Datemodified", entity.Datemodified);
@@ -39,7 +39,7 @@ namespace DBL.Repositories
             {
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Tenantcode", entity.Customercode);
+                parameters.Add("@Tenantcode", entity.Custcode);
 
                 parameters.Add("@Datecreated", entity.Datecreated);
                 parameters.Add("@Datemodified", entity.Datemodified);

@@ -24,12 +24,17 @@ namespace Fumasi.Controllers
         public IActionResult Oneoffagreement(string customercode)
         {
             bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
-            return View();
+            Customeroneoffagreement model = new Customeroneoffagreement();
+            model.Custcode = Convert.ToInt64(sec.Decrypt(customercode));
+            return PartialView("_Oneoffagreement", model);
         }
+        [HttpGet]
         public IActionResult Recurrentagreement(string customercode)
         {
             bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
-            return View();
+            Customerrecurrentagreement model = new Customerrecurrentagreement();
+            model.Custcode = Convert.ToInt64(sec.Decrypt(customercode));
+            return PartialView("_Recurrentagreement", model);
         }
 
         [HttpGet]

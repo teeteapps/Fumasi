@@ -68,14 +68,14 @@
                                             <div class="col-sm-4">
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <a href="@Url.Action("Oneoffagreement","Agreements",new {customercode=sec.Encrypt(Model.customers.Customercode.ToString())})" class="btn btn-sm btn-warning btn-block text-white"> One off Agreement</a>
+                                                        <a href="@Url.Action("Oneoffagreement","Agreements",new {customercode=sec.Encrypt(Model.customers.Customercode.ToString())})" class="btn btn-sm btn-warning btn-block text-white" data-target="#AllagreementsModal" data-toggle="modal"> One off Agreement</a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <a href="@Url.Action("Recurrentagreement","Agreements",new {customercode=sec.Encrypt(Model.customers.Customercode.ToString())})" class="btn btn-sm btn-success btn-block text-white"> Recurrent Agreement</a>
+                                                        <a href="@Url.Action("Recurrentagreement","Agreements",new {customercode=sec.Encrypt(Model.customers.Customercode.ToString())})" class="btn btn-sm btn-success btn-block text-white" data-target="#AllagreementsModal" data-toggle="modal"> Recurrent Agreement</a>
                                                     </div>
                                                 </div>
                                             </div>
