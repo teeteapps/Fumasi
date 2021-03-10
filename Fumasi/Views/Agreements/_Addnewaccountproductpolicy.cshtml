@@ -1,0 +1,51 @@
+﻿@model DBL.Entities.Customeragreementaccountproductpolicy
+@{
+    var products = ViewData["identifiers"] as List<SelectListItem>;
+}
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Account Product Policy</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Postnewagreementaccount" asp-controller="Agreements" method="post">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Productcode"></label>
+                    <select asp-for="Productcode" class="form-control form-control-sm" asp-items="@products">
+                        <option value="0">---Select Product---</option>
+                    </select>
+                    <span asp-validation-for="Productcode" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Productlimit"></label>
+                    <input asp-for="Productlimit" class="form-control form-control-sm" />
+                    <span asp-validation-for="Productlimit" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label asp-for="Periodcode"></label>
+                    <select asp-for="Periodcode" class="form-control form-control-sm">
+                        <option value="0">---Select Period---</option>
+                        <option value="1">Hourly</option>
+                        <option value="2">Daily</option>
+                        <option value="3">Weekly</option>
+                        <option value="4">Monthly</option>
+                    </select>
+                    <span asp-validation-for="Periodcode" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Save">
+    </div>
+</form>

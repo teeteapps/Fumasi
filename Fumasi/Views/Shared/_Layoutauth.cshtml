@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Fumasi | Dashboard</title>
+
+    <!-- Font Awesome Icons -->
+    <link href="~/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    @RenderSection("Css", required: false)
+    <!-- Theme style -->
+    <link href="~/dist/css/adminlte.min.css" rel="stylesheet" />
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-dark">
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-sm font-weight-bold" data-toggle="dropdown" href="#"><i class="fas fa-user-circle fa-1x img-circle rounded-circle"></i> Francis Kingori</a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="#" class="dropdown-item"><i class="fas fa-user-secret"></i> Change Password</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="@Url.Action("Logout","Account")" class="dropdown-item dropdown-footer"> <i class="nav-icon fas fa-lock-open"></i> Log out</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary">
+            <!-- Brand Logo -->
+            <a href="@Url.Action("Dashboard","Home")" class="brand-link border-bottom-0 text-decoration-none">
+                <img src="#" alt="FUMASI" class="brand-image">
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar text-sm font-weight-bold">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-tachometer-alt"></i><p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>Company<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview ml-5">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Companydetails","Company")" class="nav-link">Company Details</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-cogs"></i>
+                                <p>Settings<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview ml-5">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Loyaltysettings","Settings")" class="nav-link">Loyalty Settings</a>
+                                </li>
+                                @*<li class="nav-item">
+                    <a href="@Url.Action("Formulalist","Settings")" class="nav-link">Formula List</a>
+                </li>*@
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-list-alt"></i>
+                                <p>Products<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview ml-5">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Productslist","Products")" class="nav-link">Products List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-gas-pump"></i>
+                                <p>Stations<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview ml-5">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Stationslist","Stations")" class="nav-link">Stations List</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>Customer<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview ml-5">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Customerslist","Customers")" class="nav-link">Customers List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-id-card-alt"></i>
+                                <p>Loyalty<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview ml-5">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Loyaltyconversions","Loyalty")" class="nav-link">Conversions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Formulalist","Loyalty")" class="nav-link">Formula List</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Schemeslist","Loyalty")" class="nav-link">Schemes List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-users-cog"></i>
+                                <p>Security<i class="right fas fa-angle-left"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview ml-5">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Roleslist","Security")" class="nav-link">Staffs Roles</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Staffslist","Security")" class="nav-link">Staffs List</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="@Url.Action("Reports","Reports")" class="nav-link"><i class="nav-icon fas fa-book-open"></i>Reports</a>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="@Url.Action("Logout","Account")" class="nav-link"><i class="nav-icon fas fa-lock-open"></i>Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h4 class="m-0 text-dark  text-sm font-weight-light">@ViewBag.Title</h4>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item text-sm font-weight-light"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item text-sm font-weight-light active">@ViewBag.Title</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid text-sm font-weight-light text-sm font-weight-light">
+                    <div id="AlertsContainer">
+                        @{ await Html.RenderPartialAsync("_Alerts"); }
+                    </div>
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div><!--/. container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        @*<footer class="main-footer">
+            <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+        </footer>*@
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+    <script src="~/dist/js/adminlte.min.js"></script>
+</body>
+</html>

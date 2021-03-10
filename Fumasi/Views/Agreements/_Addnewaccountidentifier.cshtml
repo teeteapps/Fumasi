@@ -1,0 +1,41 @@
+﻿@model DBL.Entities.Customeragreementaccountidentifiers
+@{
+    var identifiertype = ViewData["identifiertypes"] as List<SelectListItem>;
+}
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Account Identifiers</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Addnewaccountidentifier" asp-controller="Agreements" method="post">
+    <div class="modal-body">
+        <div class="row">
+            <input asp-for="Accountcode" hidden />
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label asp-for="Identifiertype"></label>
+                    <select asp-for="Identifiertype" class="form-control form-control-sm" asp-items="@identifiertype">
+                        <option value="0">---Select Identifier Type---</option>
+                    </select>
+                    <span asp-validation-for="Identifiertype" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label asp-for="Identifiersno"></label>
+                    <input asp-for="Identifiersno" class="form-control form-control-sm" />
+                    <span asp-validation-for="Identifiersno" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Save">
+    </div>
+</form>

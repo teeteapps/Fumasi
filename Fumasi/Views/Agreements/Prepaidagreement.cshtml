@@ -1,0 +1,65 @@
+﻿@model DBL.Entities.Customerprepaidagreement
+@using DBL.Helpers;
+@{
+    ViewData["Title"] = "Prepaid Agreement";
+    Layout = "~/Views/Shared/_Layoutauth.cshtml";
+    EncryptDecrypt sec = new EncryptDecrypt();
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="text-sm">Prepaid Agreement Details</h5>
+            </div>
+            <form asp-action="Prepaidagreement" asp-controller="Agreements" method="post" enctype="multipart/form-data">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input asp-for="Custcode" hidden/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label asp-for="Agreementdesc"></label>
+                                <input asp-for="Agreementdesc" class="form-control form-control-sm" />
+                                <span asp-validation-for="Agreementdesc" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label asp-for="Agreementtype"></label>
+                                <select asp-for="Agreementtype" class="form-control form-control-sm">
+                                    <option value="0">Prepaid Amount</option>
+                                    <option value="1">Prepaid Litres</option>
+                                </select>
+                                <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label asp-for="Agreementdocfile"></label>
+                                <input asp-for="Agreementdocfile" type="file" class="form-control" />
+                                <span asp-validation-for="Agreementdocfile" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label asp-for="Notes"></label>
+                                <textarea asp-for="Notes" class="form-control form-control-sm"></textarea>
+                                <span asp-validation-for="Notes" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 offset-sm-6">
+                            <input type="submit" class="btn btn-sm btn-info btn-block text-center" value="Submit" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

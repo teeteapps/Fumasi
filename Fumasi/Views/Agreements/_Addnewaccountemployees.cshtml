@@ -1,0 +1,50 @@
+﻿@model DBL.Entities.Customeragreementaccountemployees
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Account Employees</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Addnewaccountemployees" asp-controller="Agreements" method="post">
+    <div class="modal-body">
+        <div class="row">
+            <input asp-for="Accountcode" hidden/>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Firstname"></label>
+                    <input asp-for="Firstname" class="form-control form-control-sm" />
+                    <span asp-validation-for="Firstname" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Lastname"></label>
+                    <input asp-for="Lastname" class="form-control form-control-sm" />
+                    <span asp-validation-for="Lastname" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Phonenumber"></label>
+                    <input asp-for="Phonenumber" class="form-control form-control-sm" />
+                    <span asp-validation-for="Phonenumber" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Emailaddress"></label>
+                    <input asp-for="Emailaddress" class="form-control form-control-sm" />
+                    <span asp-validation-for="Emailaddress" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Save">
+    </div>
+</form>

@@ -1,0 +1,49 @@
+﻿@model DBL.Entities.Customeragreementaccountdayspolicy
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Account Day(s) Policy</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Postnewagreementaccount" asp-controller="Agreements" method="post">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label asp-for="Dayscode"></label>
+                    <select asp-for="Dayscode" class="form-control form-control-sm" multiple>
+                        <option value="0">---Select Day(s)---</option>
+                        <option value="1">Monday</option>
+                        <option value="2">Tuesday</option>
+                        <option value="3">Wednesday</option>
+                        <option value="4">Thursday</option>
+                        <option value="5">Friday</option>
+                        <option value="6">Saturday</option>
+                        <option value="7">Sunday</option>
+                    </select>
+                    <span asp-validation-for="Dayscode" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label asp-for="Starttime"></label>
+                        <input asp-for="Starttime" type="time" class="form-control form-control-sm" />
+                        <span asp-validation-for="Starttime" class="text-danger text-sm font-weight-light"></span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label asp-for="Endtime"></label>
+                        <input asp-for="Endtime" type="time" class="form-control form-control-sm" />
+                        <span asp-validation-for="Endtime" class="text-danger text-sm font-weight-light"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Save">
+    </div>
+</form>

@@ -1,0 +1,66 @@
+﻿@model DBL.Entities.Customeragreementaccountequipments
+@{
+    var identifiers = ViewData["identifiers"] as List<SelectListItem>;
+}
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Account Equipments</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Postnewagreementaccount" asp-controller="Agreements" method="post">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Equipmentregno"></label>
+                    <input asp-for="Equipmentregno" class="form-control form-control-sm" />
+                    <span asp-validation-for="Equipmentregno" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Tankcapacity"></label>
+                    <input asp-for="Tankcapacity" class="form-control form-control-sm" />
+                    <span asp-validation-for="Tankcapacity" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Odometerreading"></label>
+                    <input asp-for="Odometerreading" class="form-control form-control-sm" />
+                    <span asp-validation-for="Odometerreading" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Productcode"></label>
+                    <input asp-for="Productcode" class="form-control form-control-sm" />
+                    <span asp-validation-for="Productcode" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Vehiclemakecode"></label>
+                    <input asp-for="Vehiclemakecode" class="form-control form-control-sm" />
+                    <span asp-validation-for="Vehiclemakecode" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Vehiclemmodelcode"></label>
+                    <input asp-for="Vehiclemmodelcode" class="form-control form-control-sm" />
+                    <span asp-validation-for="Vehiclemmodelcode" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Save">
+    </div>
+</form>

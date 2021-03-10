@@ -1,0 +1,29 @@
+﻿@model DBL.Entities.Customeragreementaccountstationpolicy
+@{
+    var stations = ViewData["identifiers"] as List<SelectListItem>;
+}
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="allpoliciesModalLabel">Account Station Policy</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Postnewagreementaccount" asp-controller="Agreements" method="post">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label asp-for="Stationcode"></label>
+                    <select asp-for="Stationcode" class="form-control form-control-sm" asp-items="@stations">
+                        <option value="0">---Select Period---</option>
+                    </select>
+                    <span asp-validation-for="Stationcode" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Save">
+    </div>
+</form>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DBL.Entities.Vwagreementaccounts>
+@using DBL.Helpers;
+@{
+    ViewData["Title"] = "Agreementaccountdetails";
+    Layout = "~/Views/Shared/_Layoutauth.cshtml";
+    EncryptDecrypt sec = new EncryptDecrypt();
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="text-sm">Agreement Account Details</h5>
+            </div>
+            <div class="card-body">
+                <div class="col-sm-12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td><a href="@Url.Action("Agreementaccountandpolicies","Agreements",new {accountcode=sec.Encrypt(item.Accountcode.ToString()) })">@item.Identifiersno</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

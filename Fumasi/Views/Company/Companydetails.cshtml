@@ -1,0 +1,34 @@
+﻿@model DBL.Entities.Staffroles
+@{
+    ViewData["Title"] = "Company Details";
+    Layout = "~/Views/Shared/_Layoutauth.cshtml";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-default border-0">
+            <div class="card-header border-0">
+                <h5 class="card-text text-sm font-weight-bold">Company Details</h5>
+            </div>
+            <div class="card-body">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="Rolename"></label>
+                                <input asp-for="Rolename" class="form-control form-control-sm" />
+                                <span asp-validation-for="Rolename" class="text-danger text-sm font-weight-light"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="Roledescription"></label>
+                                <input asp-for="Roledescription" class="form-control form-control-sm" />
+                                <span asp-validation-for="Roledescription" class="text-danger text-sm font-weight-light"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

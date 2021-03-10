@@ -1,0 +1,63 @@
+﻿@model DBL.Entities.Staffroles
+@{
+    ViewData["Title"] = "Add Role";
+    Layout = "~/Views/Shared/_Layoutauth.cshtml";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-default border-0">
+            <div class="card-header border-0">
+                <h5 class="card-text text-sm font-weight-bold">Role Details</h5>
+            </div>
+            <div class="card-body">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="Rolename"></label>
+                                <input asp-for="Rolename" class="form-control form-control-sm" />
+                                <span asp-validation-for="Rolename" class="text-danger text-sm font-weight-light"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="Roledescription"></label>
+                                <input asp-for="Roledescription" class="form-control form-control-sm" />
+                                <span asp-validation-for="Roledescription" class="text-danger text-sm font-weight-light"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered table-striped table-sm">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">Role Permissions</th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th class="text-center ml-5"><input type="checkbox" /></th>
+                                        <th>Permision Name</th>
+                                        <th>Permision Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var data in Model.permissions)
+                                    {
+                                    <tr class="overflow-auto">
+                                        <td><input type="checkbox" class="form-control form-control-sm" /><input type="hidden" asp-for="@data.Permisioncode" class="form-control form-control-sm" /></td>
+                                        <td>@data.Permisionname</td>
+                                        <td>@data.Permisiondesc</td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
