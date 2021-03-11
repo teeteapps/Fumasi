@@ -19,7 +19,7 @@
                                     <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"></Image>
                                     </Frame>
-                                    <Entry Placeholder="Email" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                                    <Entry Placeholder="Email" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"  x:Name="EntryUsername"></Entry>
                                 </StackLayout>
                             </Frame>
                             <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
@@ -27,10 +27,10 @@
                                     <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"></Image>
                                     </Frame>
-                                    <Entry Placeholder="Password" TextColor="HotPink" IsPassword="True" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                                    <Entry Placeholder="Password" TextColor="HotPink" IsPassword="True" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0" x:Name="EntryPassword"></Entry>
                                 </StackLayout>
                             </Frame>
-                            <Button Text="SIGN IN" BackgroundColor="HotPink" TextColor="White" CornerRadius="30" Clicked="ButtonLogin_Clicked" />
+                            <Button Text="SIGN IN" BackgroundColor="HotPink" TextColor="White" CornerRadius="30" Clicked="ButtonLogin_Clicked" x:Name="ButtonLogin" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
