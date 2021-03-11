@@ -8,7 +8,7 @@ namespace FumasiApp.RestAPIClient
 {
     public class RestClient<T>
     {
-        private const string LoginWebServiceUrl = "http://testingme333-001-site1.etempurl.com/api/UserCredentials/";
+        private const string LoginWebServiceUrl = "https://localhost:44363/api/Account/";
 
         public async Task<bool> checkLogin(string username, string password)
         {

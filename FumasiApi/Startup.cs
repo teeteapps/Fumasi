@@ -44,6 +44,7 @@ namespace FumasiApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -54,6 +55,10 @@ namespace FumasiApi
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

@@ -26,4 +26,9 @@ namespace DBL.Entities
         public string Data16 { get; set; }
         public string Data17 { get; set; }
     }
+    public class GenericModelResp
+    {
+        public int RespStatus { get; set; }
+        public string RespMessage { get; set; }
+    }
 }
