@@ -24,7 +24,7 @@ namespace Fumasi.Controllers
         [HttpGet]
         public async Task<IActionResult> Stationslist()
         {
-            IEnumerable<Tenanttationdata> data = new List<Tenanttationdata>();
+            IEnumerable<Stations> data = new List<Stations>();
             bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId,SessionUserData.connKey,SessionUserData.connData));
             try
             {

@@ -9,7 +9,7 @@ namespace DBL.Repositories
     public interface IStationRepository
     {
         #region Tenant Stations
-        IEnumerable<Tenanttationdata> Gettenenatstationslist();
+        IEnumerable<Stations> Gettenenatstationslist();
         GenericModel Addnewtenantstation(Stations entity);
         Stations GetStationdetaildata(long stationcode);
         #endregion

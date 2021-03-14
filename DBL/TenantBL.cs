@@ -25,7 +25,7 @@ namespace DBL
         }
 
         #region Tenant stations
-        public async Task<IEnumerable<Tenanttationdata>> Gettenenatstationslist()
+        public async Task<IEnumerable<Stations>> Gettenenatstationslist()
         {
             return await Task.Run(() =>
             {

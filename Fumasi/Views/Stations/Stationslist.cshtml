@@ -1,7 +1,9 @@
-﻿
+﻿@model IEnumerable<DBL.Entities.Stations>
+@using DBL.Helpers;
 @{
     ViewData["Title"] = "Stationslist";
     Layout = "~/Views/Shared/_Layoutauth.cshtml";
+    EncryptDecrypt sec = new EncryptDecrypt();
 }
 @section Css{
     <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -14,7 +16,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-sm-7">
-                        <h5 class="card-text text-sm font-weight-bold">Roles List</h5>
+                        <h5 class="card-text text-sm font-weight-bold">Stations List</h5>
                     </div>
                     <div class="col-sm-5">
                         <a href="@Url.Action("Addnewstation","Stations")" class="btn btn-sm btn-info text-white float-right mr-3">Add Station</a>
@@ -25,19 +27,26 @@
                 <table class="table table-bordered table-striped table-responsive-sm table-sm" id="staffRolestable">
                     <thead>
                         <tr>
-                            <th>Role Name</th>
-                            <th>Role Status</th>
+                            <th>Station Name</th>
+                            <th>Station Address</th>
+                            <th>Station Reference</th>
+                            <th>Details</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Role one</td>
-                            <td>Is Active</td>
-                            <td>
-                                <a>Edit</a> | <a>Activate</a> | <a>Delete</a>
-                            </td>
-                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Stationname</td>
+                                <td>@item.Stationaddress</td>
+                                <td>@item.Stationreference</td>
+                                <td><a href="@Url.Action("Stationdetails","Stations",new {Stationcode=sec.Encrypt(item.Stationcode.ToString()) })" class="btn btn-sm btn-info">Details</a></td>
+                                <td>
+                                    <a>Edit</a> | <a>Activate</a> | <a>Delete</a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>

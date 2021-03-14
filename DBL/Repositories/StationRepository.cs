@@ -16,12 +16,12 @@ namespace DBL.Repositories
         {
         }
         #region Tenant Stations
-        public IEnumerable<Tenanttationdata> Gettenenatstationslist()
+        public IEnumerable<Stations> Gettenenatstationslist()
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
-                return connection.Query<Tenanttationdata>(GetAllStatement(Tenanttationdata.TableName)).ToList();
+                return connection.Query<Stations>(GetAllStatement(Stations.TableName)).ToList();
             }
         }
         public GenericModel Addnewtenantstation(Stations entity)
