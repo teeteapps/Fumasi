@@ -1,0 +1,12 @@
+D:\Uttamb\Projects\Fumasi\DBL\bin\Debug\net5.0\DBL.deps.json
+D:\Uttamb\Projects\Fumasi\DBL\bin\Debug\net5.0\DBL.dll
+D:\Uttamb\Projects\Fumasi\DBL\bin\Debug\net5.0\ref\DBL.dll
+D:\Uttamb\Projects\Fumasi\DBL\bin\Debug\net5.0\DBL.pdb
+D:\Uttamb\Projects\Fumasi\DBL\obj\Debug\net5.0\DBL.csproj.AssemblyReference.cache
+D:\Uttamb\Projects\Fumasi\DBL\obj\Debug\net5.0\DBL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Uttamb\Projects\Fumasi\DBL\obj\Debug\net5.0\DBL.AssemblyInfoInputs.cache
+D:\Uttamb\Projects\Fumasi\DBL\obj\Debug\net5.0\DBL.AssemblyInfo.cs
+D:\Uttamb\Projects\Fumasi\DBL\obj\Debug\net5.0\DBL.csproj.CoreCompileInputs.cache
+D:\Uttamb\Projects\Fumasi\DBL\obj\Debug\net5.0\DBL.dll
+D:\Uttamb\Projects\Fumasi\DBL\obj\Debug\net5.0\ref\DBL.dll
+D:\Uttamb\Projects\Fumasi\DBL\obj\Debug\net5.0\DBL.pdb
