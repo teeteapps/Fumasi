@@ -1,4 +1,5 @@
 ﻿using DBL;
+using DBL.Helpers;
 using DBL.Models;
 using Fumasi.Models;
 using Microsoft.AspNetCore.Authentication;
@@ -18,10 +19,17 @@ namespace Fumasi.Controllers
     public class AccountController : BaseController
     {
         private readonly BL bl;
-        //EncryptDecrypt sec = new EncryptDecrypt();
+        EncryptDecrypt sec = new EncryptDecrypt();
         public AccountController()
         {
-            bl = new BL(Util.GetDbConnString());
+            if (SessionUserData.UserCode > 0)
+            {
+                bl = new BL(Util.GetDbConnString(sec.Encrypt(SessionUserData.Acccode.ToString())));
+            }
+            else
+            {
+                bl = new BL(Util.GetDbConnString("catalog"));
+            }
         }
         [HttpGet]
         [AllowAnonymous]
@@ -47,8 +55,9 @@ namespace Fumasi.Controllers
                         PhoneNo = resp.PhoneNo,
                         Email = resp.Email,
                         Fullname = resp.Fullname,
-                        //profilecode = resp.profilecode,
-                        //Parentcode = resp.Parentcode
+                        Acccode = resp.Subcode,
+                        connstring = resp.Fullname,
+                        Reportstring = resp.Fullname
                     };
                     SetUserLoggedIn(User, false);
                     if (User.Loginstatus == 1)
@@ -80,8 +89,9 @@ namespace Fumasi.Controllers
                 Fullname = user.Fullname,
                 UserName = user.Email,
                 Phonenumber = user.PhoneNo,
-                //Parentcode = user.Parentcode,
-                //ProfileCode = user.profilecode,
+                Acccode = user.Parentcode,
+                connstring = user.Fullname,
+                Reportstring = user.Fullname
             };
 
             string userData = JsonConvert.SerializeObject(serializeModel);

@@ -14,7 +14,14 @@ namespace DBL.Repositories
         {
             _connString = connectionString;
         }
-
+        public string GetAllStatementbytenantcode(string tableName, string column)
+        {
+            return string.Format("Select * From {0} Where {1} = @Id", tableName, column);
+        }
+        public string FindStatementbytenantcode(string tableName, string idColumn)
+        {
+            return string.Format("Select * From {0} Where {1} = @Id", tableName, idColumn);
+        }
         public string DeleteStatement(string tableName, string idColumn)
         {
             return string.Format("Delete From {0} Where {1} = @Id", tableName, idColumn);

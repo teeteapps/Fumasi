@@ -9,6 +9,9 @@ namespace DBL.Models
     public class UserModel
     {
         public long Subcode { get; set; }
+        public long Acccode { get; set; }
+        public string connstring { get; set; }
+        public string Reportstring { get; set; }
         public string Fullname { get; set; }
         public string Email { get; set; }
         public string PhoneNo { get; set; }
