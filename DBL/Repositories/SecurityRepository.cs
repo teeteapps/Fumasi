@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DBL.Repositories
 {
-    public class SecurityRepository
+    public class SecurityRepository:BaseRepository,ISecurityRepository
     {
+        public SecurityRepository(string connectionString) : base(connectionString)
+        {
+        }
     }
 }

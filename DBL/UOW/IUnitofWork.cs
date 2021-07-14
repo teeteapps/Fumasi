@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBL.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace DBL.UOW
 {
     public interface IUnitofWork
     {
+        ISecurityRepository SecurityRepository { get; }
     }
 }
