@@ -47,8 +47,8 @@ namespace Fumasi.Controllers
                         PhoneNo = resp.PhoneNo,
                         Email = resp.Email,
                         Fullname = resp.Fullname,
-                        profilecode = resp.profilecode,
-                        Parentcode = resp.Parentcode
+                        //profilecode = resp.profilecode,
+                        //Parentcode = resp.Parentcode
                     };
                     SetUserLoggedIn(User, false);
                     if (User.Loginstatus == 1)
@@ -80,8 +80,8 @@ namespace Fumasi.Controllers
                 Fullname = user.Fullname,
                 UserName = user.Email,
                 Phonenumber = user.PhoneNo,
-                Parentcode = user.Parentcode,
-                ProfileCode = user.profilecode,
+                //Parentcode = user.Parentcode,
+                //ProfileCode = user.profilecode,
             };
 
             string userData = JsonConvert.SerializeObject(serializeModel);

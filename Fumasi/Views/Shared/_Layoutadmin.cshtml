@@ -55,10 +55,40 @@
                 </li>
             </ul>
         </nav>
-        @*@if (authenticated && currentUserData != null)
-        {
-            @await Component.InvokeAsync("Menu", currentUserData.ProfileCode)
-        }*@
+        <aside class="main-sidebar sidebar-light-white elevation-0">
+            <a href="@Url.Action("Dashboard","Home")" class="brand-link">
+                @*<img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">*@
+                <span class="brand-text font-weight-light">SLEEQ</span>
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Dashboard","Home")" class="nav-link">
+                                <i class="nav-icon fa fa-tachometer"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa-lock"></i><p>User Management<i class="fa fa-angle-left right"></i></p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-action="Stafflist" asp-controller="Staff" class="nav-link">
+                                        <i class="nav-icon fa fa-users"></i>
+                                        <p>Staff List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
         <div class="content-wrapper" style="margin-top:70px">
             <section class="content">
                 <div class="container-fluid">

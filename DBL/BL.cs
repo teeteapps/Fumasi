@@ -38,9 +38,9 @@ namespace DBL
                             Fullname = resp.Data2,
                             PhoneNo = resp.Data3,
                             Email = resp.Data5,
-                            profilecode = Convert.ToInt32(resp.Data6),
-                            Loginstatus = Convert.ToInt32(resp.Data7),
-                            Parentcode = Convert.ToInt64(resp.Data8)
+                            //profilecode = Convert.ToInt32(resp.Data6),
+                            //Loginstatus = Convert.ToInt32(resp.Data7),
+                            //Parentcode = Convert.ToInt64(resp.Data8)
 
                         };
                         return userModel;
