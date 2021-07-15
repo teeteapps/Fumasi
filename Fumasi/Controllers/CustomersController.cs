@@ -37,7 +37,7 @@ namespace Fumasi.Controllers
         public IActionResult AddnewCustomers()
         {
             LoadParams();
-            return View();
+            return PartialView("_AddnewCustomers");
         }
 
         [HttpPost]
