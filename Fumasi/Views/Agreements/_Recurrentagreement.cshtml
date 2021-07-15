@@ -17,123 +17,142 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
                 <div class="form-group">
                     <label asp-for="Agreementdesc"></label>
                     <input asp-for="Agreementdesc" class="form-control form-control-sm" />
                     <span asp-validation-for="Agreementdesc" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label asp-for="Agreementtype"></label>
-                    <input asp-for="Agreementtype" class="form-control form-control-sm" />
-                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label asp-for="Loyaltygrouping"></label>
-                    <input asp-for="Loyaltygrouping" class="form-control form-control-sm" />
-                    <span asp-validation-for="Loyaltygrouping" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label asp-for="Agreementdesc"></label>
-                    <input asp-for="Agreementdesc" class="form-control form-control-sm" />
-                    <span asp-validation-for="Agreementdesc" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label asp-for="Agreementtype"></label>
-                    <input asp-for="Agreementtype" class="form-control form-control-sm" />
-                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label asp-for="Loyaltygrouping"></label>
-                    <input asp-for="Loyaltygrouping" class="form-control form-control-sm" />
-                    <span asp-validation-for="Loyaltygrouping" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label asp-for="Limitvalue"></label>
-                    <input asp-for="Limitvalue" class="form-control form-control-sm" />
-                    <span asp-validation-for="Limitvalue" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label asp-for="Graceperiod"></label>
-                    <input asp-for="Graceperiod" class="form-control form-control-sm" />
-                    <span asp-validation-for="Graceperiod" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label asp-for="Billingbasis"></label>
-                    <input asp-for="Billingbasis" class="form-control form-control-sm" />
-                    <span asp-validation-for="Billingbasis" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label asp-for="Billingcycle"></label>
-                    <input asp-for="Billingcycle" class="form-control form-control-sm" />
-                    <span asp-validation-for="Billingcycle" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label asp-for="Startdate"></label>
-                    <input asp-for="Startdate" class="form-control form-control-sm" />
-                    <span asp-validation-for="Startdate" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label asp-for="Startdate"></label>
-                    <input asp-for="Startdate" class="form-control form-control-sm" />
-                    <span asp-validation-for="Startdate" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label asp-for="Pricelistcode"></label>
-                    <input asp-for="Pricelistcode" class="form-control form-control-sm" />
-                    <span asp-validation-for="Pricelistcode" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label asp-for="Discountcode"></label>
-                    <input asp-for="Discountcode" class="form-control form-control-sm" />
-                    <span asp-validation-for="Discountcode" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label asp-for="Notes"></label>
-                    <textarea asp-for="Notes" class="form-control form-control-sm"></textarea>
+                    <label>Limit Value Type</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">Prepaid Amount</option>
+                        <option value="1">Prepaid Litres</option>
+                    </select>
+                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Loyalty Grouping</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">Prepaid Amount</option>
+                        <option value="1">Prepaid Litres</option>
+                    </select>
+                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Price List</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">Prepaid Amount</option>
+                        <option value="1">Prepaid Litres</option>
+                    </select>
+                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Discount List</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">Prepaid Amount</option>
+                        <option value="1">Prepaid Litres</option>
+                    </select>
+                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Allowed debt</label>
+                    <input asp-for="Agreementtype" class="form-control form-control-sm" />
+                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Comsumption Limit</label>
+                    <input asp-for="Loyaltygrouping" class="form-control form-control-sm" />
+                    <span asp-validation-for="Loyaltygrouping" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Start Date</label>
+                    <input asp-for="Agreementtype" class="form-control form-control-sm" />
+                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label> Grace Period</label>
+                    <input asp-for="Loyaltygrouping" class="form-control form-control-sm" />
+                    <span asp-validation-for="Loyaltygrouping" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Billing Basis</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">Consumed</option>
+                        <option value="1">Fixed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Billing Cycle Type</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">Weekly</option>
+                        <option value="1">Monthly</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Billing Cycle If Wekly</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">7 Weeks</option>
+                        <option value="1">14 Weeks</option>
+                        <option value="1">21 Weeks</option>
+                        <option value="1">28 Weeks</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Biling day if Monthly</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">1-28</option>
+                        <option value="1">Monthly</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label> Agreement Ref</label>
+                    <input asp-for="Notes" class="form-control form-control-sm" />
                     <span asp-validation-for="Notes" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <label asp-for="Agreementdoc"></label>
-                    <input asp-for="Agreementdoc" class="form-control form-control-sm" />
+                    <input asp-for="Agreementdoc" type="file" />
                     <span asp-validation-for="Agreementdoc" class="text-danger"></span>
                 </div>
             </div>

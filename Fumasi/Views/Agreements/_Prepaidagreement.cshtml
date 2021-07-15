@@ -17,16 +17,50 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="form-group">
                     <label asp-for="Agreementdesc"></label>
                     <input asp-for="Agreementdesc" class="form-control form-control-sm" />
                     <span asp-validation-for="Agreementdesc" class="text-danger"></span>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label asp-for="Agreementtype"></label>
+                    <label>Limit Value Type</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">Prepaid Amount</option>
+                        <option value="1">Prepaid Litres</option>
+                    </select>
+                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Loyalty Grouping</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">Prepaid Amount</option>
+                        <option value="1">Prepaid Litres</option>
+                    </select>
+                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Price list</label>
+                    <select asp-for="Agreementtype" class="form-control form-control-sm">
+                        <option value="0">Prepaid Amount</option>
+                        <option value="1">Prepaid Litres</option>
+                    </select>
+                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Discount List</label>
                     <select asp-for="Agreementtype" class="form-control form-control-sm">
                         <option value="0">Prepaid Amount</option>
                         <option value="1">Prepaid Litres</option>
@@ -39,7 +73,7 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <label asp-for="Agreementdocfile"></label>
-                    <input asp-for="Agreementdocfile" type="file" class="form-control" />
+                    <input asp-for="Agreementdocfile" type="file" />
                     <span asp-validation-for="Agreementdocfile" class="text-danger"></span>
                 </div>
             </div>

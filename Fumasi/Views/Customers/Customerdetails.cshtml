@@ -29,11 +29,11 @@
                                             <div class="col-sm-5"> Type :</div>
                                             @if (Model.customers.Customertype == "Individual")
                                             {
-                                                <div class="col-sm-7"><span class="btn btn-sm btn-success">@Model.customers.Customertype</span> </div>
+                                                <div class="col-sm-7"><span class="badge badge-pill">@Model.customers.Customertype</span> </div>
                                             }
                                             else
                                             {
-                                                <div class="col-sm-7"><span class="btn btn-sm btn-warning">@Model.customers.Customertype</span> </div>
+                                                <div class="col-sm-7"><span class="badge badge-warning">@Model.customers.Customertype</span> </div>
                                             }
                                         </div>
                                         <div class="row mt-1">
