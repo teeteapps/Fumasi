@@ -12,10 +12,18 @@ namespace DBL.Repositories
         {
             _connString = connectionString;
         }
+        public string ActivateStatement(string tableName, string idColumn)
+        {
+            return string.Format("Update {0} Set Isactive=1 Where {1} = @Id", tableName, idColumn);
+        }
+        public string DeactivateStatement(string tableName, string idColumn)
+        {
+            return string.Format("Update {0} Set Isactive=0 Where {1} = @Id", tableName, idColumn);
+        }
 
         public string DeleteStatement(string tableName, string idColumn)
         {
-            return string.Format("Delete From {0} Where {1} = @Id", tableName, idColumn);
+            return string.Format("Update {0} Set Isdeleted=1 Where {1} = @Id", tableName, idColumn);
         }
 
         public string FindStatementraw(string tableName, string idColumn)

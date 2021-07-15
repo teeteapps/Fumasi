@@ -1,0 +1,94 @@
+﻿@model DBL.Entities.Customers
+@using DBL.Helpers;
+@{
+    EncryptDecrypt sec = new EncryptDecrypt();
+    var tenantstations = ViewData["tenantstations"] as List<SelectListItem>;
+    var phoneprefix = ViewData["phoneprefix"] as List<SelectListItem>;
+}
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="AllagreementsModalLabel">Register new customer</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="EditnewCustomers" asp-controller="Customers" method="post">
+    <div class="modal-body">
+        <div class="row">
+            <input hidden asp-for="Customercode" />
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Firstname"></label>
+                    <input asp-for="Firstname" class="form-control form-control-sm" />
+                    <span asp-validation-for="Firstname" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Lastname"></label>
+                    <input asp-for="Lastname" class="form-control form-control-sm" />
+                    <span asp-validation-for="Lastname" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Emailaddress"></label>
+                    <input asp-for="Emailaddress" class="form-control form-control-sm" />
+                    <span asp-validation-for="Emailaddress" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Phonenumber"></label>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <select asp-for="Phoneprefix" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@phoneprefix"></select>
+                        </div>
+                        <div class="col-sm-8">
+                            <input asp-for="Phonenumber" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+
+                    <span asp-validation-for="Phonenumber" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Customertype"></label>
+                    <select asp-for="Customertype" class="form-control form-control-sm">
+                        <option value="-1">---Select Customer type---</option>
+                        <option value="100">Individual</option>
+                        <option value="200">Corporate</option>
+                    </select>
+                    <span asp-validation-for="Customertype" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Station"></label>
+                    <select asp-for="Station" class="form-control form-control-sm" id="Prodsubcategory" asp-items="@tenantstations">
+                        <option value="0">---Select Station---</option>
+                    </select>
+                    <span asp-validation-for="Station" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Canaccessprtal"></label>   <span>&nbsp;&nbsp;&nbsp;&nbsp;  <input asp-for="Canaccessprtal" type="checkbox" /></span>
+                    <span asp-validation-for="Canaccessprtal" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Save">
+    </div>
+</form>

@@ -11,6 +11,8 @@ namespace DBL.Repositories
         IEnumerable<Vwtenantcustomers> Getcustomersdata();
         GenericModel AddnewCustomers(Customers entity);
         Vwtenantcustomers Gettenantcustomerdata(long Customercode);
+        Customers GetnewCustomerbycode(long Customercode);
+        GenericModel EditnewCustomers(Customers entity);
         #endregion
 
     }

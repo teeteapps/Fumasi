@@ -55,6 +55,35 @@ namespace DBL.Repositories
                 return connection.Query<Vwtenantcustomers>(FindStatementraw(Vwtenantcustomers.TableName, "Customercode"), param: new { Id = Customercode }).FirstOrDefault();
             }
         }
+        public Customers GetnewCustomerbycode(long Customercode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+
+                return connection.Query<Customers>(FindStatementraw(Customers.TableName, "Customercode"), param: new { Id = Customercode }).FirstOrDefault();
+            }
+        }
+        public GenericModel EditnewCustomers(Customers entity)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Customercode", entity.Customercode);
+                parameters.Add("@Firstname", entity.Firstname);
+                parameters.Add("@Lastname", entity.Lastname);
+                parameters.Add("@Emailaddress", entity.Emailaddress);
+                parameters.Add("@Phonenumber", entity.Phonenumber);
+                parameters.Add("@Customertype", entity.Customertype);
+                parameters.Add("@Phoneprefix", entity.Phoneprefix);
+                parameters.Add("@Stationcode", entity.Station);
+                parameters.Add("@Canaccessprtal", entity.Canaccessprtal);
+                parameters.Add("@Datemodified", entity.Datemodified);
+                parameters.Add("@Modifiedby", entity.Modifiedby);
+                return connection.Query<GenericModel>("Usp_EditnewCustomers", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
         #endregion
     }
 }

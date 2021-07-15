@@ -56,7 +56,7 @@ namespace Fumasi.Controllers
                 if (resp.RespStatus == 0)
                 {
                     Success(resp.RespMessage, true);
-                    return RedirectToAction("Customerdetails", "Customers", new { customercode = sec.Encrypt(resp.Data7) });
+                    return RedirectToAction("Customerslist", "Customers");
                 }
                 else if (resp.RespStatus == 1)
                 {
@@ -71,7 +71,7 @@ namespace Fumasi.Controllers
             {
                 Util.LogError("Add New Customer",ex,true);
             }
-            return RedirectToAction("Customerslist");
+            return RedirectToAction("Customerslist", "Customers");
         }
 
         [HttpGet]
@@ -93,7 +93,43 @@ namespace Fumasi.Controllers
             return View(data);
         }
 
-
+        [HttpGet]
+        public async Task<IActionResult> EditnewCustomers(string customercode)
+        {
+            LoadParams();
+            var data = await bl.GetnewCustomerbycode(Convert.ToInt64(sec.Decrypt(customercode)));
+            return PartialView("_EditnewCustomers",data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditnewCustomers(Customers model)
+        {
+            LoadParams();
+            bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
+            try
+            {
+                model.Modifiedby = SessionUserData.UserCode;
+                model.Datemodified = DateTime.UtcNow;
+                var resp = await bl.EditnewCustomers(model);
+                if (resp.RespStatus == 0)
+                {
+                    Success(resp.RespMessage, true);
+                    return RedirectToAction("Customerslist", "Customers");
+                }
+                else if (resp.RespStatus == 1)
+                {
+                    Danger(resp.RespMessage, true);
+                }
+                else
+                {
+                    Danger("Database Error Occured. Please Contact Admin", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Util.LogError("Add New Customer", ex, true);
+            }
+            return RedirectToAction("Customerslist", "Customers");
+        }
         #region Other methods
         private void LoadParams()
         {

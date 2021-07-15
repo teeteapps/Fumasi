@@ -28,8 +28,6 @@
                                 <th>Phone</th>
                                 <th>Station</th>
                                 <th>Type</th>
-                                <th>Grouping</th>
-                                <th>Status</th>
                                 <th>Portal control</th>
                                 <th>Details</th>
                                 <th>Edit</th>
@@ -48,49 +46,25 @@
                                     <td>
                                         @if (item.Customertype == "Individual")
                                         {
-                                            <button class="btn btn-xs btn-success">@item.Customertype</button>
+                                            <button class="badge badge-info">@item.Customertype</button>
                                         }
                                         else
                                         {
-                                            <button class="btn btn-xs text-white btn-warning">@item.Customertype</button>
-                                        }
-                                    </td>
-                                    <td>
-                                        @if (item.Customergouping == "Prepaid")
-                                        {
-                                            <button class="btn btn-xs btn-success">@item.Customergouping</button>
-                                        }
-                                        else
-                                        {
-                                            <button class="btn btn-xs text-white btn-secondary">@item.Customergouping</button>
-                                        }
-                                    </td>
-                                    <td>
-                                        @if (item.Customerstatus == "Active")
-                                        {
-                                            <button class="btn btn-xs btn-success">@item.Customerstatus</button>
-                                        }
-                                        else if (item.Customerstatus == "Not Deleted")
-                                        {
-                                            <button class="btn btn-xs btn-success">@item.Customerstatus</button>
-                                        }
-                                        else
-                                        {
-                                            <button class="btn btn-xs btn-danger">@item.Customerstatus</button>
+                                            <button class="badge badge-warning">@item.Customertype</button>
                                         }
                                     </td>
                                     <td>
                                         @if (@item.Canaccessprtal == "Yes")
                                         {
-                                            <button class="btn btn-xs btn-success">@item.Canaccessprtal</button>
+                                            <button class="badge badge-info">@item.Canaccessprtal</button>
                                         }
                                         else
                                         {
-                                            <button class="btn btn-xs btn-danger">@item.Canaccessprtal</button>
+                                            <button class="badge badge-warning">@item.Canaccessprtal</button>
                                         }
                                     </td>
-                                    <td><a href="@Url.Action("Customerdetails","Customers",new {customercode= sec.Encrypt(item.Customercode.ToString()) })" class="btn btn-xs btn-info">View</a></td>
-                                    <td><a>Edit</a></td>
+                                    <td><a href="@Url.Action("Customerdetails","Customers",new {customercode= sec.Encrypt(item.Customercode.ToString()) })" class="btn btn-xs btn-info">Details</a></td>
+                                    <td><a href="@Url.Action("EditnewCustomers","Customers",new {customercode= sec.Encrypt(item.Customercode.ToString()) })" class="btn btn-xs btn-info" data-target="#RegistercustomerModal" data-toggle="modal">Edit</a></td>
                                     <td><a>Activate</a></td>
                                     <td><a>Delete</a></td>
                                 </tr>

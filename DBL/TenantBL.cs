@@ -80,6 +80,26 @@ namespace DBL
                 return Resp;
             });
         }
+        public async Task<Customers> GetnewCustomerbycode(long Customercode)
+        {
+            return await Task.Run(() =>
+            {
+                var Resp = db.CustomerRepository.GetnewCustomerbycode(Customercode);
+                return Resp;
+            });
+        }
+        public async Task<GenericModel> EditnewCustomers(Customers obj)
+        {
+            return await Task.Run(() =>
+            {
+                if (obj.Canaccessprtal)
+                {
+                    obj.Customerpass = sec.Encrypt(random.GenerateRandomPass().ToString());
+                }
+                var Resp = db.CustomerRepository.EditnewCustomers(obj);
+                return Resp;
+            });
+        }
         #endregion
 
         #region Agreements

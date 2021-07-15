@@ -29,31 +29,14 @@
                                             <div class="col-sm-5"> Type :</div>
                                             @if (Model.customers.Customertype == "Individual")
                                             {
-                                                <div class="col-sm-7"><span class="badge badge-pill">@Model.customers.Customertype</span> </div>
+                                                <div class="col-sm-7"><span class="badge badge-info text-white">@Model.customers.Customertype</span> </div>
                                             }
                                             else
                                             {
-                                                <div class="col-sm-7"><span class="badge badge-warning">@Model.customers.Customertype</span> </div>
+                                                <div class="col-sm-7"><span class="badge badge-warning text-white">@Model.customers.Customertype</span> </div>
                                             }
                                         </div>
-                                        <div class="row mt-1">
-                                            <div class="col-sm-5"> Group :</div>
-                                            @if (Model.customers.Customergouping == "Postpaid")
-                                            {
-                                                <div class="col-sm-7"><span class="btn btn-sm btn-secondary">@Model.customers.Customergouping </span> </div>
-                                            }
-                                            else
-                                            {
-                                                <div class="col-sm-7"><span class="btn btn-sm btn-success">@Model.customers.Customergouping </span> </div>
-                                            }
-                                        </div>
-                                        @if (Model.customers.Customergouping == "Postpaid")
-                                        {
-                                            <div class="row mt-1">
-                                                <div class="col-sm-5"> Limit :</div>
-                                                <div class="col-sm-7"> @Model.customers.Postpaidlimit</div>
-                                            </div>
-                                        }
+                                        
                                     </div>
                                 </div>
                             </div>

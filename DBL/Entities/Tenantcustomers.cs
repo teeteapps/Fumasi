@@ -45,11 +45,10 @@ namespace DBL.Entities
         public string Phonenumber { get; set; }
         public string Emailaddress { get; set; }
         public string Stationname { get; set; }
-        public string Customergouping { get; set; }
         public string Customertype { get; set; }
-        public string Customerstatus { get; set; }
+        public bool Isactive { get; set; }
+        public bool Isdeleted { get; set; }
         public string Canaccessprtal { get; set; }
-        public double Postpaidlimit { get; set; }
     }
 
     public class Customerandagreementdetails
