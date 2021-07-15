@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Tenantstaffs] (
+    [Idxno]           BIGINT          IDENTITY (1, 1) NOT NULL,
+    [Staffcode]       BIGINT          NOT NULL,
+    [Tenantcode]      BIGINT          NOT NULL,
+    [Rolecode]        BIGINT          DEFAULT ((0)) NOT NULL,
+    [Firstname]       VARCHAR (50)    NOT NULL,
+    [Lastname]        VARCHAR (50)    NOT NULL,
+    [Emailaddress]    VARCHAR (100)   NOT NULL,
+    [Phonenumber]     VARCHAR (15)    NOT NULL,
+    [Staffpass]       VARCHAR (100)   NOT NULL,
+    [Staffpin]        VARCHAR (100)   NOT NULL,
+    [Staffstatus]     INT             DEFAULT ((3)) NOT NULL,
+    [Changepassword]  INT             DEFAULT ((1)) NOT NULL,
+    [Changepin]       INT             DEFAULT ((1)) NOT NULL,
+    [Topuplimittype]  VARCHAR (100)   NOT NULL,
+    [Topuplimitvalue] DECIMAL (24, 2) DEFAULT ((0)) NOT NULL,
+    [Stationcode]     BIGINT          NOT NULL,
+    [Datecreated]     DATETIME        DEFAULT (getdate()) NOT NULL,
+    [Datemodified]    DATETIME        DEFAULT (getdate()) NOT NULL,
+    [Systemdate]      DATETIME        DEFAULT (getdate()) NOT NULL,
+    [Createdby]       VARCHAR (100)   NOT NULL,
+    [Modifiedby]      VARCHAR (100)   NOT NULL,
+    PRIMARY KEY CLUSTERED ([Idxno] ASC),
+    UNIQUE NONCLUSTERED ([Emailaddress] ASC),
+    UNIQUE NONCLUSTERED ([Phonenumber] ASC),
+    UNIQUE NONCLUSTERED ([Staffcode] ASC)
+);
+
