@@ -2,74 +2,81 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fumasi | Login</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link href="~/css/site.css" rel="stylesheet" />
+    <title>Fumasi - Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/adminlte.min.css" rel="stylesheet" />
 </head>
-<body>
-    <div class="container">
-        <div class="row" id="logincontainer">
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-4 offset-sm-4">
-                        <div id="AlertsContainer">
-                            @{ await Html.RenderPartialAsync("_Alerts"); }
-                        </div>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="card card-outline">
+            <div class="card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+                <div class="row mt-1">
+                    <div class="col-sm-12" id="AlertsContainer">
+                        @{ await Html.RenderPartialAsync("_Alerts"); }
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-4 offset-sm-4">
-                        <div class="card">
-                            <div class="card-header bg-white">
-                                <h5 class="text-center text-sm font-weight-light">Login Details</h5>
-                            </div>
-                            <form asp-action="Login" asp-controller="Account" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label asp-for="Emailaddress" class="text-sm font-weight-light"></label>
-                                                <input asp-for="Emailaddress" class="form-control form-control-sm" />
-                                                <span asp-validation-for="Emailaddress" class="text-danger font-weight-bold"></span>
+                <form asp-action="Login" asp-controller="Account" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="input-group mb-3">
+                                        <input asp-for="Emailaddress" type="email" class="form-control form-control-sm" placeholder="Email Address">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fa fa-envelope"></span>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label asp-for="Password" class="text-sm font-weight-light"></label>
-                                                <input asp-for="Password" class="form-control form-control-sm" />
-                                                <span asp-validation-for="Password" class="text-danger font-weight-bold"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col-sm-4 offset-sm-4">
-                                            <input type="submit" class="btn btn-sm btn-success btn-block text-center m-1 font-weight-light" value="Login" />
-                                        </div>
-
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col-sm-12">
-                                            <a href="@Url.Action("Forgotpassword","Account")" class="text-sm font-weight-light">Forgot Password?</a>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <span asp-validation-for="Emailaddress" class="text-danger"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="input-group mb-3">
+                                        <input asp-for="Password" type="password" class="form-control form-control-sm" placeholder="Password">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fa fa-lock"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-sm btn-primary btn-block">Sign In</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/adminlte.js"></script>
 </body>
 </html>
+
