@@ -43,6 +43,7 @@ namespace DBL
                             PhoneNo = resp.Data3,
                             Email = resp.Data6,
                             profilecode = Convert.ToInt32(resp.Data7),
+                            Tenantcode = Convert.ToInt64(resp.Data11),
                             connId=resp.Data8,
                             connKey=resp.Data9,
                             connData=resp.Data10,

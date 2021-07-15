@@ -12,6 +12,7 @@ namespace DBL.Models
         public string Email { get; set; }
         public string PhoneNo { get; set; }
         public int profilecode { get; set; }
+        public long Tenantcode { get; set; }
         public UserLoginStatus UserStatus { get; set; }
         public int Loginstatus { get; set; }
         public string connId { get; set; }

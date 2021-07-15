@@ -15,9 +15,10 @@ namespace DBL.Enum
     public enum ListModelType
     {
         staffroles = 0,
-        tenantstations = 1,
-        identifiers = 2,
-        identifiertypes = 3
+        phoneprefix = 1,
+        tenantstations = 2,
+        identifiers = 3,
+        identifiertypes = 4
 
     }
     public enum CartStatus

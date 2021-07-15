@@ -50,6 +50,7 @@ namespace Fumasi.Controllers
                     User.Email = resp.Email;
                     User.Fullname = resp.Fullname;
                     User.profilecode = resp.profilecode;
+                    User.Tenantcode = resp.Tenantcode;
                     User.connId = resp.connId;
                     User.connKey = resp.connKey;
                     User.connData = resp.connData;
@@ -78,6 +79,7 @@ namespace Fumasi.Controllers
                 UserName = user.Email,
                 Phonenumber = user.PhoneNo,
                 ProfileCode = user.profilecode,
+                Tenantcode = user.Tenantcode,
                 connId =user.connId,
                 connKey =user.connKey,
                 connData =user.connData

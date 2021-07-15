@@ -12,6 +12,7 @@ namespace Fumasi.Models
         public string UserName { get; set; }
         public string Phonenumber { get; set; }
         public int ProfileCode { get; set; }
+        public long Tenantcode { get; set; }
         public string connId { get; set; }
         public string connKey { get; set; }
         public string connData { get; set; }

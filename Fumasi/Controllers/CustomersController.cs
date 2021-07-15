@@ -46,29 +46,26 @@ namespace Fumasi.Controllers
             LoadParams();
             bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
             try
-            {    
-                if (ModelState.IsValid)
-                    {
-                        model.Modifiedby = SessionUserData.UserName;
-                        model.Createdby = SessionUserData.UserName;
-                        model.Tenantcode = SessionUserData.UserCode;
-                        model.Datecreated = DateTime.UtcNow;
-                        model.Datemodified = DateTime.UtcNow;
-                        var resp = await bl.AddnewCustomers(model);
-                        if (resp.RespStatus == 0)
-                        {
-                            Success(resp.RespMessage, true);
-                            return RedirectToAction("Customerdetails", "Customers",new {customercode=sec.Encrypt(resp.Data7) });
-                        }
-                        else if (resp.RespStatus == 1)
-                        {
-                            Danger(resp.RespMessage, true);
-                        }
-                        else
-                        {
-                            Danger("Database Error Occured. Please Contact Admin", true);
-                        }
-                    }
+            {
+                model.Modifiedby = SessionUserData.UserCode;
+                model.Createdby = SessionUserData.UserCode;
+                model.Tenantcode = SessionUserData.Tenantcode;
+                model.Datecreated = DateTime.UtcNow;
+                model.Datemodified = DateTime.UtcNow;
+                var resp = await bl.AddnewCustomers(model);
+                if (resp.RespStatus == 0)
+                {
+                    Success(resp.RespMessage, true);
+                    return RedirectToAction("Customerdetails", "Customers", new { customercode = sec.Encrypt(resp.Data7) });
+                }
+                else if (resp.RespStatus == 1)
+                {
+                    Danger(resp.RespMessage, true);
+                }
+                else
+                {
+                    Danger("Database Error Occured. Please Contact Admin", true);
+                }
             }
             catch (Exception ex)
             {
@@ -107,6 +104,12 @@ namespace Fumasi.Controllers
                 Value = x.Value
             }).ToList();
             ViewData["tenantstations"] = list;
+            list = bl.GetListModel(ListModelType.phoneprefix).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["phoneprefix"] = list;
         }
         #endregion
     }

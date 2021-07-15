@@ -9,7 +9,7 @@ namespace DBL.Repositories
     {
         #region Customers
         IEnumerable<Vwtenantcustomers> Getcustomersdata();
-        GenericModel AddnewCustomers(Tenantcustomers entity);
+        GenericModel AddnewCustomers(Customers entity);
         Vwtenantcustomers Gettenantcustomerdata(long Customercode);
         #endregion
 

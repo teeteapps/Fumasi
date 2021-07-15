@@ -60,12 +60,14 @@ namespace DBL
                 return Resp;
             });
         }
-        public async Task<GenericModel> AddnewCustomers(Tenantcustomers obj)
+        public async Task<GenericModel> AddnewCustomers(Customers obj)
         {
             return await Task.Run(() =>
             {
-                obj.Customerpass = sec.Encrypt(random.GenerateRandomPass().ToString());
-                obj.Customerpin = sec.Encrypt(random.GenerateRandomPin().ToString());
+                if (obj.Canaccessprtal)
+                {
+                    obj.Customerpass = sec.Encrypt(random.GenerateRandomPass().ToString());
+                }
                 var Resp = db.CustomerRepository.AddnewCustomers(obj);
                 return Resp;
             });

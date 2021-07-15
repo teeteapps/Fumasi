@@ -23,7 +23,7 @@ namespace DBL.Repositories
                 return connection.Query<Vwtenantcustomers>(GetAllStatement(Vwtenantcustomers.TableName)).ToList();
             }
         }
-        public GenericModel AddnewCustomers(Tenantcustomers entity)
+        public GenericModel AddnewCustomers(Customers entity)
         {
             using (var connection = new SqlConnection(_connString))
             {
@@ -35,10 +35,8 @@ namespace DBL.Repositories
                 parameters.Add("@Emailaddress", entity.Emailaddress);
                 parameters.Add("@Phonenumber", entity.Phonenumber);
                 parameters.Add("@Customerpass", entity.Customerpass);
-                parameters.Add("@Customerpin", entity.Customerpin);
                 parameters.Add("@Customertype", entity.Customertype);
-                parameters.Add("@Postpaidlimit", entity.Postpaidlimit);
-                parameters.Add("@Customergrouping", entity.Customergrouping);
+                parameters.Add("@Phoneprefix", entity.Phoneprefix);
                 parameters.Add("@Stationcode", entity.Station);
                 parameters.Add("@Canaccessprtal", entity.Canaccessprtal);
                 parameters.Add("@Datecreated", entity.Datecreated);

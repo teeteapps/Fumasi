@@ -23,7 +23,6 @@ namespace DBL.Entities
         [Display(Name = "Emailaddress")]
         public string Emailaddress { get; set; }
         public string Customerpass { get; set; }
-        public string Customerpin { get; set; }
         [Display(Name = "Station")]
         public long Station { get; set; }
         [Display(Name = "Customer Portal Control")]
@@ -32,8 +31,8 @@ namespace DBL.Entities
         public int Customertype { get; set; }
         public DateTime Datecreated { get; set; }
         public DateTime Datemodified { get; set; }
-        public string Createdby { get; set; }
-        public string Modifiedby { get; set; }
+        public long Createdby { get; set; }
+        public long Modifiedby { get; set; }
     }
     [Table("Vwtenantcustomers")]
     public class Vwtenantcustomers
