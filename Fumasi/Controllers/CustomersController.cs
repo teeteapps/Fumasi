@@ -41,7 +41,7 @@ namespace Fumasi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddnewCustomers(Tenantcustomers model)
+        public async Task<IActionResult> AddnewCustomers(Customers model)
         {
             LoadParams();
             bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
@@ -74,7 +74,7 @@ namespace Fumasi.Controllers
             {
                 Util.LogError("Add New Customer",ex,true);
             }
-            return View();
+            return RedirectToAction("Customerslist");
         }
 
         [HttpGet]

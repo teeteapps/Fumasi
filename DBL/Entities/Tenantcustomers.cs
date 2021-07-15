@@ -1,28 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace DBL.Entities
 {
-    [Table("Tenantcustomers")]
-    public class Tenantcustomers
+    [Table("Customers")]
+    public class Customers
     {
         [NotMapped]
-        public static string TableName { get { return "Tenantcustomers"; } }
+        public static string TableName { get { return "Customers"; } }
         public long Customercode { get; set; }
         public long Tenantcode { get; set; }
+        [Display(Name ="Firstname")]
         public string Firstname { get; set; }
+        [Display(Name = "Lastname")]
         public string Lastname { get; set; }
+        public string Phoneprefix { get; set; }
+        [Display(Name = "Phonenumber")]
         public string Phonenumber { get; set; }
+        [Display(Name = "Emailaddress")]
         public string Emailaddress { get; set; }
         public string Customerpass { get; set; }
         public string Customerpin { get; set; }
+        [Display(Name = "Station")]
         public long Station { get; set; }
+        [Display(Name = "Customer Portal Control")]
         public bool Canaccessprtal { get; set; }
-        public int Customergrouping { get; set; }
+        [Display(Name = "Customer Type")]
         public int Customertype { get; set; }
-        public double Postpaidlimit { get; set; }
         public DateTime Datecreated { get; set; }
         public DateTime Datemodified { get; set; }
         public string Createdby { get; set; }
