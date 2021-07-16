@@ -105,7 +105,7 @@ namespace Fumasi.Controllers
             {
                 Util.LogError("Add new Prepaid Agreement", ex, true);
             }
-            return View();
+            return RedirectToAction("Customerdetails", "Customers", new { customercode = sec.Encrypt(model.Customercode.ToString()) });
         }
         #region Agreement Account
         [HttpGet]
