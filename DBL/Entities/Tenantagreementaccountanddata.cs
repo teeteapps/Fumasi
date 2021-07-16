@@ -7,8 +7,10 @@ namespace DBL.Entities
 	public class Customeragreementaccount
 	{
 		public long Accountcode { get; set; }
+		public long Customercode { get; set; }
 		public long Agreementcode { get; set; }
 		public long Loyaltycode { get; set; }
+		public long Parentcode { get; set; }
 		public long Credittype { get; set; }
 		public long Cardtypecode { get; set; }
 		public string  Mask { get; set; }

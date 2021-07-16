@@ -2,6 +2,7 @@
 using DBL.Entities;
 using DBL.Enum;
 using DBL.Helpers;
+using DBL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -79,11 +80,11 @@ namespace Fumasi.Controllers
             bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
             Customerandagreementdetails data = new Customerandagreementdetails();
             data.customers = new Vwtenantcustomers();
-            data.prepaidagreement = new List<Customerprepaidagreementdata>();
+            data.agreementdata = new List<Viewcustomeragreements>();
             try 
             {
                 data.customers = await bl.Gettenantcustomerdata(Convert.ToInt64(sec.Decrypt(customercode)));
-                data.prepaidagreement = await bl.Gettenantcustomerprepaidagreementdata(Convert.ToInt64(sec.Decrypt(customercode)));
+                data.agreementdata = await bl.Gettenantcustomerprepaidagreementdata(Convert.ToInt64(sec.Decrypt(customercode)));
             }
             catch (Exception ex)
             {

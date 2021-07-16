@@ -190,7 +190,7 @@ namespace DBL
                 return Resp;
             });
         }
-        public async Task<IEnumerable<Customerprepaidagreementdata>> Gettenantcustomerprepaidagreementdata(long Customercode)
+        public async Task<IEnumerable<Viewcustomeragreements>> Gettenantcustomerprepaidagreementdata(long Customercode)
         {
             return await Task.Run(() =>
             {

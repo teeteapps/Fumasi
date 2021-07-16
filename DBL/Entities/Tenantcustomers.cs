@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBL.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -53,6 +54,6 @@ namespace DBL.Entities
     public class Customerandagreementdetails
     {
         public Vwtenantcustomers customers { get; set; }
-        public IEnumerable<Customerprepaidagreementdata> prepaidagreement { get; set; }
+        public IEnumerable<Viewcustomeragreements> agreementdata { get; set; }
     }
 }

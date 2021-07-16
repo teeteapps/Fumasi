@@ -69,9 +69,9 @@
         </div>
         <div class="col-sm-9">
 
-            @if (Model.prepaidagreement != null)
+            @if (Model.agreementdata != null)
             {
-                @foreach (var item in Model.prepaidagreement)
+                @foreach (var item in Model.agreementdata)
                 {
                     <div class="row">
                         <div class="col-sm-12">
@@ -79,16 +79,16 @@
                                 <div class="card-header">
                                     <div class="row">
                                         <div class="col-sm-7">
-                                            <h5 class="text-sm">@item.Agreementdesc</h5>
+                                            <h5 class="text-sm">@item.Agreementname</h5>
                                         </div>
                                         <div class="col-sm-5">
-                                            <a asp-action="Addnewagreementaccount" asp-controller="Agreements" asp-route-Customeragreementid="@item.Agreementcode" asp-route-Customercode="@item.Customercode" class="btn btn-sm btn-info text-white float-right mr-3" data-target="#mainaccountidentifierModal" data-toggle="modal">New Account</a>
+                                            <a asp-action="Addnewagreementaccount" asp-controller="Agreements" asp-route-Customeragreementid="@item.Agreementcode" asp-route-Customercode="@item.Customercode" asp-route-Credittype="@item.Credittype"  asp-route-Parentcode="@item.Accountcode" asp-route-Loyaltycode="@item.Loyaltycode" class="btn btn-sm btn-info text-white float-right mr-3" data-target="#mainaccountidentifierModal" data-toggle="modal">New Account</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <a href="@Url.Action("Agreementaccountdetails","Agreements",new {agreementcode=sec.Encrypt(item.Agreementcode.ToString()) })" class="btn btn-info btn-sm">Accounts (@item.Numberofaccounts)</a>
+                                        <a href="@Url.Action("Agreementaccountdetails","Agreements",new {agreementcode=sec.Encrypt(item.Agreementcode.ToString()) })" class="btn btn-info btn-sm">Accounts (@item.Noofaccounts)</a>
                                     </div>
                                 </div>
                             </div>

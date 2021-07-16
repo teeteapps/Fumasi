@@ -9,6 +9,11 @@
     {
       "library": "bootstrap@5.0.2",
       "destination": "wwwroot/bootstrap/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "datatable@2.0.1",
+      "destination": "wwwroot/lib/datatable/"
     }
   ]
 }

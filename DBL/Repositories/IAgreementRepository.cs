@@ -1,4 +1,5 @@
 ﻿using DBL.Entities;
+using DBL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,7 +18,7 @@ namespace DBL.Repositories
 
         #region Prepaid Agreement
         GenericModel Addnewprepaidagreement(Customerprepaidagreement entity);
-       IEnumerable<Customerprepaidagreementdata> Gettenantcustomerprepaidagreementdata(long Customercode);
+       IEnumerable<Viewcustomeragreements> Gettenantcustomerprepaidagreementdata(long Customercode);
         #endregion
 
         #region Agreement Accounts

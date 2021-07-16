@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DBL.Entities;
+using DBL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -73,13 +74,13 @@ namespace DBL.Repositories
                 return connection.Query<GenericModel>("Usp_Addnewprepaidagreement", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
-        public IEnumerable<Customerprepaidagreementdata> Gettenantcustomerprepaidagreementdata(long Customercode)
+        public IEnumerable<Viewcustomeragreements> Gettenantcustomerprepaidagreementdata(long Customercode)
         {
             using (var connection = new SqlConnection(_connString))
             {
                 connection.Open();
 
-                return connection.Query<Customerprepaidagreementdata>(FindStatementraw(Customerprepaidagreementdata.TableName, "Customercode"), param: new { Id = Customercode }).ToList();
+                return connection.Query<Viewcustomeragreements>(FindStatementraw(Viewcustomeragreements.TableName, "Customercode"), param: new { Id = Customercode }).ToList();
             }
         }
 
@@ -93,14 +94,18 @@ namespace DBL.Repositories
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Agreementcode", entity.Agreementcode);
+                parameters.Add("@Loyaltycode", entity.Loyaltycode);
+                parameters.Add("@Parentcode", entity.Parentcode);
+                parameters.Add("@Credittype", entity.Credittype);
                 parameters.Add("@Cardtypecode", entity.Cardtypecode);
                 parameters.Add("@Mask", entity.Mask);
-                //parameters.Add("@Hasdrivercode", entity.Hasdrivercode);
+                parameters.Add("@Limittype", entity.Limittype);
+                parameters.Add("@Limitvalue", entity.Limitvalue);
                 parameters.Add("@Datecreated", entity.Datecreated);
                 parameters.Add("@Datemodified", entity.Datemodified);
                 parameters.Add("@Createdby", entity.Createdby);
                 parameters.Add("@Modifiedby", entity.Modifiedby);
-                return connection.Query<GenericModel>("Usp_Addnewagreementaccount", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+                return connection.Query<GenericModel>("Usp_Addcustomeraccount", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
         public IEnumerable<Vwagreementaccounts> Getagreementaccountsdata(long Agreementcode)

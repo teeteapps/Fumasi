@@ -77,7 +77,10 @@ namespace DBL.Entities
 		[NotMapped]
 		public static string TableName { get { return "Customerprepaidagreementdata"; } }
 		public long Agreementcode { get; set; }
+		public long Credittype { get; set; }
+		public long Loyaltycode { get; set; }
 		public long Customercode { get; set; }
+		public long Parentcode { get; set; }
 		public long Accountcode { get; set; }
 		public int Numberofaccounts { get; set; }
 		public string Agreementtype { get; set; }

@@ -110,11 +110,15 @@ namespace Fumasi.Controllers
         
         #region Agreement Account
         [HttpGet]
-        public IActionResult Addnewagreementaccount(long Customeragreementid,long Customercode)
+        public IActionResult Addnewagreementaccount(long Customeragreementid,long Customercode, long Credittype, long Parentcode, long Loyaltycode)
         {
             LoadParams();
             Customeragreementaccount model = new Customeragreementaccount();
             model.Agreementcode = Customeragreementid;
+            model.Credittype = Credittype;
+            model.Loyaltycode = Loyaltycode;
+            model.Customercode = Customercode;
+            model.Parentcode = Parentcode;
             return PartialView("_Addnewaccount", model);
         }
         [HttpPost]
@@ -132,7 +136,7 @@ namespace Fumasi.Controllers
                 if (resp.RespStatus == 0)
                 {
                     Success(resp.RespMessage, true);
-                    // RedirectToAction("Customerdetails", "Customers", new { customercode = sec.Encrypt(model.Customercode.ToString()) });
+                   return  RedirectToAction("Customerdetails", "Customers", new { customercode = sec.Encrypt(model.Customercode.ToString()) });
                 }
                 else if (resp.RespStatus == 1)
                 {
