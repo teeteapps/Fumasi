@@ -7,13 +7,13 @@
       "destination": "wwwroot/lib/font-awesome/"
     },
     {
-      "library": "bootstrap@5.0.2",
-      "destination": "wwwroot/bootstrap/"
+      "provider": "cdnjs",
+      "library": "datatables@1.10.21",
+      "destination": "wwwroot/lib/datatables/"
     },
     {
-      "provider": "cdnjs",
-      "library": "datatable@2.0.1",
-      "destination": "wwwroot/lib/datatable/"
+      "library": "bootstrap@5.0.2",
+      "destination": "wwwroot/lib/bootstrap/"
     }
   ]
 }
