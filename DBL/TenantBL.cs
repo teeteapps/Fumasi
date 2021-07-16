@@ -190,6 +190,14 @@ namespace DBL
                 return Resp;
             });
         }
+        public async Task<Viewcustomeragreements> Getagreementdata(long Agreementcode)
+        {
+            return await Task.Run(() =>
+            {
+                var Resp = db.AgreementRepository.Getagreementdata(Agreementcode);
+                return Resp;
+            });
+        }
         public async Task<IEnumerable<Viewcustomeragreements>> Gettenantcustomerprepaidagreementdata(long Customercode)
         {
             return await Task.Run(() =>
@@ -198,6 +206,10 @@ namespace DBL
                 return Resp;
             });
         }
+        #endregion
+
+        #region Agreement Data
+        
         #endregion
         #endregion
 

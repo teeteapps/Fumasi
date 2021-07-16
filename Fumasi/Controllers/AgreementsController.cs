@@ -157,20 +157,39 @@ namespace Fumasi.Controllers
         #endregion
 
         #region Customer Agreement Account Details
-        public async Task<IActionResult> Agreementaccountdetails(string agreementcode)
+        public async Task<IActionResult> Agreementaccountdetails(string Code)
         {
             bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
-            IEnumerable<Vwagreementaccounts> model =new List<Vwagreementaccounts>();
-            try
-            {
-                model = await bl.Getagreementaccountsdata(Convert.ToInt64(sec.Decrypt(agreementcode)));
-            }
-            catch (Exception ex)
-            {
-                Util.LogError("Agreement account details", ex,true);
-            }
-            return View(model);
+            var data = await bl.Getagreementdata(Convert.ToInt64(sec.Decrypt(Code)));
+            return View(data);
         }
+        public async Task<IActionResult> Getagreementaccounts(long Code)
+        {
+            bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
+            var draw = Request.Form["draw"].FirstOrDefault();
+            var start = Request.Form["start"].FirstOrDefault();
+            var length = Request.Form["length"].FirstOrDefault();
+            var sortColumn = Request.Form["columns[" + Request.Form["order[0][column]"].FirstOrDefault() + "][name]"].FirstOrDefault();
+            var sortColumnDirection = Request.Form["order[0][dir]"].FirstOrDefault();
+            var searchValue = Request.Form["search[value]"].FirstOrDefault();
+            int pageSize = length != null ? Convert.ToInt32(length) : 0;
+            int skip = start != null ? Convert.ToInt32(start) : 0;
+            int recordsTotal = 0;
+            var accountsdata = await bl.Getagreementaccountsdata(Code);
+            //if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDirection)))
+            //{
+            //    accountsdata = accountsdata.OrderBy(sortColumn + " " + sortColumnDirection);
+            //}
+            if (!string.IsNullOrEmpty(searchValue))
+            {
+                accountsdata = accountsdata.Where(m => m.identifierSno.Contains(searchValue));
+            }
+            recordsTotal = accountsdata.Count();
+            var data = accountsdata.Skip(skip).Take(pageSize).ToList();
+            var jsonData = new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data };
+            return Ok(jsonData);
+        }
+        
         #endregion
 
         #region Account and Policies

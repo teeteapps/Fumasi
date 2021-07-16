@@ -18,7 +18,9 @@ namespace DBL.Repositories
 
         #region Prepaid Agreement
         GenericModel Addnewprepaidagreement(Customerprepaidagreement entity);
+        Viewcustomeragreements Getagreementdata(long Agreementcode);
        IEnumerable<Viewcustomeragreements> Gettenantcustomerprepaidagreementdata(long Customercode);
+
         #endregion
 
         #region Agreement Accounts

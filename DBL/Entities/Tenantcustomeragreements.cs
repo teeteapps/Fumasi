@@ -102,11 +102,12 @@ namespace DBL.Entities
 	{
 		[NotMapped]
 		public static string TableName { get { return "Vwagreementaccounts"; } }
-		public long Accountcode { get; set; }
-		public long Accountnumber { get; set; }
-		public long Agreementcode { get; set; }
-		public string Identifiersno { get; set; }
-		public string Identifieruid { get; set; }
+		public long accountNumber { get; set; }
+		public string identifierSno { get; set; }
+		public long accountCode { get; set; }
+		public string identifierUid { get; set; }
+		public long agreementCode { get; set; }
+		
 
 	}
 

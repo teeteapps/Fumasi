@@ -15,6 +15,8 @@ namespace DBL.Repositories
         public AgreementRepository(string connectionString) : base(connectionString)
         {
         }
+         
+
         #region One Off Agreement
         public GenericModel Addnewoneoffagreement(Customeroneoffagreement entity)
         {
@@ -72,6 +74,16 @@ namespace DBL.Repositories
                 parameters.Add("@Createdby", entity.Createdby);
                 parameters.Add("@Modifiedby", entity.Modifiedby);
                 return connection.Query<GenericModel>("Usp_Addnewprepaidagreement", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+
+        public Viewcustomeragreements Getagreementdata(long Agreementcode)
+        {
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+
+                return connection.Query<Viewcustomeragreements>(FindStatementraw(Viewcustomeragreements.TableName, "Agreementcode"), param: new { Id = Agreementcode }).FirstOrDefault();
             }
         }
         public IEnumerable<Viewcustomeragreements> Gettenantcustomerprepaidagreementdata(long Customercode)
