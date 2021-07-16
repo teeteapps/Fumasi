@@ -14,6 +14,8 @@ namespace DBL.UOW
         private IStationRepository stationRepository;
         private ICustomerRepository customerRepository;
         private IAgreementRepository agreementRepository;
+        private IPricelistRepository pricelistRepository;
+        private IDiscountlistRepository discountlistRepository;
         //private IShoppingCartRepository shoppingCartRepository;
         //private IProductRepository productRepository;
 
@@ -36,6 +38,14 @@ namespace DBL.UOW
         public IAgreementRepository AgreementRepository
         {
             get { return agreementRepository ?? (agreementRepository = new AgreementRepository(connString)); }
+        }
+        public IPricelistRepository PricelistRepository
+        {
+            get { return pricelistRepository ?? (pricelistRepository = new PricelistRepository(connString)); }
+        }
+        public IDiscountlistRepository DiscountlistRepository
+        {
+            get { return discountlistRepository ?? (discountlistRepository = new DiscountlistRepository(connString)); }
         }
         //public IProductRepository ProductRepository
         //{

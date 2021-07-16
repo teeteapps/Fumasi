@@ -11,6 +11,8 @@ namespace DBL.UOW
         IStationRepository StationRepository { get; }
         ICustomerRepository CustomerRepository { get; }
         IAgreementRepository AgreementRepository { get; }
+        IPricelistRepository PricelistRepository { get; }
+        IDiscountlistRepository DiscountlistRepository { get; }
         //IShoppingCartRepository ShoppingCartRepository { get; }
         //IProductRepository ProductRepository { get; }
         void Reset();

@@ -51,6 +51,51 @@ namespace DBL
         }
         #endregion
 
+        #region Tenant Pricelist
+        public async Task<IEnumerable<Pricelists>> Gettenantpricelists()
+        {
+            return await Task.Run(() =>
+            {
+                var Resp = db.PricelistRepository.Gettenantpricelists();
+                return Resp;
+            });
+        }
+        public async Task<GenericModel> Addnewprice(Pricelists obj)
+        {
+            return await Task.Run(() =>
+            {
+                var Resp = db.PricelistRepository.Addnewprice(obj);
+                return Resp;
+            });
+        }
+        public async Task<Pricelists> Gettenantpricedata(long Pricecode)
+        {
+            return await Task.Run(() =>
+            {
+                var Resp = db.PricelistRepository.Gettenantpricedata(Pricecode);
+                return Resp;
+            });
+        }
+        public async Task<GenericModel> Editnewprice(Pricelists obj)
+        {
+            return await Task.Run(() =>
+            {
+                var Resp = db.PricelistRepository.Editnewprice(obj);
+                return Resp;
+            });
+        }
+        #endregion
+        #region Tenant Discountlist
+        public async Task<IEnumerable<Discountlist>> Gettenantdiscountlists()
+        {
+            return await Task.Run(() =>
+            {
+                var Resp = db.DiscountlistRepository.Gettenantdiscountlists();
+                return Resp;
+            });
+        }
+        #endregion
+
         #region Customers
         public async Task<IEnumerable<Vwtenantcustomers>> Getcustomersdata()
         {
@@ -101,6 +146,7 @@ namespace DBL
             });
         }
         #endregion
+
 
         #region Agreements
         #region Prepaid Agreement
