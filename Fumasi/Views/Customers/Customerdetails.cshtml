@@ -6,112 +6,101 @@
     EncryptDecrypt sec = new EncryptDecrypt();
 }
 <div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="text-sm">Customer Details</h5>
+    <div class="col-sm-3">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-sm">Customer Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mt-1">
+                            <div class="col-sm-5"> Name :</div>
+                            <div class="col-sm-7"> <span class="text-capitalize">@Model.customers.Fullname</span></div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="col-sm-5"> Type :</div>
+                            @if (Model.customers.Customertype == "Individual")
+                            {
+                                <div class="col-sm-7"><span class="badge badge-info text-white">@Model.customers.Customertype</span> </div>
+                            }
+                            else
+                            {
+                                <div class="col-sm-7"><span class="badge badge-warning text-white">@Model.customers.Customertype</span> </div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-3">
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="text-sm">Customer Data</h5>
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <a href="@Url.Action("Oneoffagreement","Agreements",new {customercode=sec.Encrypt(Model.customers.Customercode.ToString())})" class="btn btn-sm btn-warning btn-block text-white" data-target="#AllagreementsModal" data-toggle="modal"> One off Agreement</a>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="row mt-1">
-                                            <div class="col-sm-5"> Name :</div>
-                                            <div class="col-sm-7"> <span class="text-capitalize">@Model.customers.Fullname</span></div>
-                                        </div>
-                                        <div class="row mt-1">
-                                            <div class="col-sm-5"> Type :</div>
-                                            @if (Model.customers.Customertype == "Individual")
-                                            {
-                                                <div class="col-sm-7"><span class="badge badge-info text-white">@Model.customers.Customertype</span> </div>
-                                            }
-                                            else
-                                            {
-                                                <div class="col-sm-7"><span class="badge badge-warning text-white">@Model.customers.Customertype</span> </div>
-                                            }
-                                        </div>
-                                        
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <a href="@Url.Action("Recurrentagreement","Agreements",new {customercode=sec.Encrypt(Model.customers.Customercode.ToString())})" class="btn btn-sm btn-success btn-block text-white" data-target="#AllagreementsModal" data-toggle="modal"> Recurrent Agreement</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <a href="@Url.Action("Prepaidagreement","Agreements",new {Code=sec.Encrypt(Model.customers.Customercode.ToString())})" class="btn btn-sm btn-info btn-block text-white" data-target="#AllagreementsModal" data-toggle="modal"> Prepaid Agreement</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-9">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-sm-4">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-sm">Agreement Details</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.prepaidagreement != null)
+                        {
+                            @foreach (var item in Model.prepaidagreement)
+                            {
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card">
+                                            <div class="card-header">
                                                 <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <a href="@Url.Action("Oneoffagreement","Agreements",new {customercode=sec.Encrypt(Model.customers.Customercode.ToString())})" class="btn btn-sm btn-warning btn-block text-white" data-target="#AllagreementsModal" data-toggle="modal"> One off Agreement</a>
+                                                    <div class="col-sm-7">
+                                                        <h5 class="text-sm">@item.Agreementdesc</h5>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <a asp-action="Addnewagreementaccount" asp-controller="Agreements" asp-route-Customeragreementid="@item.Agreementcode" asp-route-Customercode="@item.Customercode" class="btn btn-sm btn-info text-white float-right mr-3" data-target="#mainaccountidentifierModal" data-toggle="modal">New Account</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-4">
+                                            <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <a href="@Url.Action("Recurrentagreement","Agreements",new {customercode=sec.Encrypt(Model.customers.Customercode.ToString())})" class="btn btn-sm btn-success btn-block text-white" data-target="#AllagreementsModal" data-toggle="modal"> Recurrent Agreement</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <a href="@Url.Action("Prepaidagreement","Agreements",new {Code=sec.Encrypt(Model.customers.Customercode.ToString())})" class="btn btn-sm btn-info btn-block text-white" data-target="#AllagreementsModal" data-toggle="modal"> Prepaid Agreement</a>
-                                                    </div>
+                                                    <a href="@Url.Action("Agreementaccountdetails","Agreements",new {agreementcode=sec.Encrypt(item.Agreementcode.ToString()) })" class="btn btn-info btn-sm">No of Accounts (@item.Numberofaccounts)</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="text-sm">Agreement Details</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        @if (Model.prepaidagreement != null)
-                                        {
-                                            @foreach (var item in Model.prepaidagreement)
-                                            {
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <div class="card">
-                                                            <div class="card-header">
-                                                                <div class="row">
-                                                                    <div class="col-sm-7">
-                                                                        <h5 class="text-sm">@item.Agreementdesc</h5>
-                                                                    </div>
-                                                                    <div class="col-sm-5">
-                                                                        <a asp-action="Addnewagreementaccount" asp-controller="Agreements" asp-route-Customeragreementid="@item.Agreementcode" asp-route-Customercode="@item.Customercode" class="btn btn-sm btn-info text-white float-right mr-3" data-target="#mainaccountidentifierModal" data-toggle="modal">New Account</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <div class="row">
-                                                                    <a href="@Url.Action("Agreementaccountdetails","Agreements",new {agreementcode=sec.Encrypt(item.Agreementcode.ToString()) })" class="btn btn-info btn-sm">No of Accounts (@item.Numberofaccounts)</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            }
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            }
+                        }
                     </div>
                 </div>
             </div>
