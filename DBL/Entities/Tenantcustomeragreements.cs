@@ -60,6 +60,7 @@ namespace DBL.Entities
 		public long Loyoltycode { get; set; }
 		public long Pricelistcode { get; set; }
 		public long Discountlistcode { get; set; }
+		public string Billingbasis { get; set; }
 		public string Agreementdesc { get; set; }
 		public IFormFile Agreementfile { get; set; }
 		public string Agreementdoc { get; set; }

@@ -178,6 +178,14 @@ namespace DBL
         {
             return await Task.Run(() =>
             {
+                if (obj.Typecode==100)
+                {
+                    obj.Billingbasis = "Fixed";
+                }
+                else
+                {
+                    obj.Billingbasis = "Consumed";
+                }
                 var Resp = db.AgreementRepository.Addnewprepaidagreement(obj);
                 return Resp;
             });

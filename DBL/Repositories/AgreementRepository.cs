@@ -59,7 +59,11 @@ namespace DBL.Repositories
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Customercode", entity.Customercode);
                 parameters.Add("@Agreementdesc", entity.Agreementdesc);
-                parameters.Add("@Agreementtype", entity.Typecode);
+                parameters.Add("@Agreementtypecode", entity.Typecode);
+                parameters.Add("@Pricelistcode", entity.Pricelistcode);
+                parameters.Add("@Discountlistcode", entity.Discountlistcode);
+                parameters.Add("@Loyaltycode", entity.Loyoltycode);
+                parameters.Add("@Billingbasis", entity.Billingbasis);
                 parameters.Add("@Agreementdoc", entity.Agreementdoc);
                 parameters.Add("@Notes", entity.Notes);
                 parameters.Add("@Datecreated", entity.Datecreated);
