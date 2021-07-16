@@ -107,6 +107,7 @@ namespace Fumasi.Controllers
             }
             return RedirectToAction("Customerdetails", "Customers", new { customercode = sec.Encrypt(model.Customercode.ToString()) });
         }
+        
         #region Agreement Account
         [HttpGet]
         public IActionResult Addnewagreementaccount(long Customeragreementid,long Customercode)
@@ -114,8 +115,7 @@ namespace Fumasi.Controllers
             LoadParams();
             Customeragreementaccount model = new Customeragreementaccount();
             model.Agreementcode = Customeragreementid;
-            model.Customercode = Customercode;
-            return PartialView("_Addnewagreementaccount", model);
+            return PartialView("_Addnewaccount", model);
         }
         [HttpPost]
         public async Task<IActionResult> Postnewagreementaccount(Customeragreementaccount model)
@@ -124,15 +124,15 @@ namespace Fumasi.Controllers
             try
             {
                 
-                model.Modifiedby = SessionUserData.UserName;
-                model.Createdby = SessionUserData.UserName;
+                model.Modifiedby = SessionUserData.UserCode;
+                model.Createdby = SessionUserData.UserCode;
                 model.Datecreated = DateTime.UtcNow;
                 model.Datemodified = DateTime.UtcNow;
                 var resp = await bl.Addnewagreementaccount(model);
                 if (resp.RespStatus == 0)
                 {
                     Success(resp.RespMessage, true);
-                    return RedirectToAction("Customerdetails", "Customers", new { customercode = sec.Encrypt(model.Customercode.ToString()) });
+                    // RedirectToAction("Customerdetails", "Customers", new { customercode = sec.Encrypt(model.Customercode.ToString()) });
                 }
                 else if (resp.RespStatus == 1)
                 {
@@ -147,7 +147,8 @@ namespace Fumasi.Controllers
             {
                 Util.LogError("Add new Prepaid Agreement", ex, true);
             }
-            return RedirectToAction("Customerdetails", "Customers", new { customercode = sec.Encrypt(model.Customercode.ToString()) });
+            return View();
+            // RedirectToAction("Customerdetails", "Customers", new { customercode = sec.Encrypt(model.Customercode.ToString()) });
         }
         #endregion
 

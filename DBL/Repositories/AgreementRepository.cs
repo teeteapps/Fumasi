@@ -93,8 +93,9 @@ namespace DBL.Repositories
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@Agreementcode", entity.Agreementcode);
-                parameters.Add("@Identifiercode", entity.Identifiercode);
-                parameters.Add("@Hasdrivercode", entity.Hasdrivercode);
+                parameters.Add("@Cardtypecode", entity.Cardtypecode);
+                parameters.Add("@Mask", entity.Mask);
+                //parameters.Add("@Hasdrivercode", entity.Hasdrivercode);
                 parameters.Add("@Datecreated", entity.Datecreated);
                 parameters.Add("@Datemodified", entity.Datemodified);
                 parameters.Add("@Createdby", entity.Createdby);
