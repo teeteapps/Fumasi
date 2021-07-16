@@ -1,6 +1,74 @@
-﻿
+﻿@model DBL.Entities.Pricelists
+@using DBL.Helpers;
+
 @{
     ViewData["Title"] = "Pricedetails";
     Layout = "~/Views/Shared/_Layoutauth.cshtml";
+    EncryptDecrypt sec = new EncryptDecrypt();
 }
 
+<div class="row">
+    <div class="col-sm-4">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>@Model.Pricename</h4>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <h5 class="card-text text-sm font-weight-bold">Price List Prices</h5>
+                            </div>
+                            <div class="col-sm-5">
+                                <a href="@Url.Action("Addnewpricelistprice","Prices",new {Code= sec.Encrypt(Model.Pricecode.ToString()) })" class="btn btn-sm btn-info text-white float-right mr-3" data-target="#RegisterpriceModal" data-toggle="modal">Add Price</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade mt-5" id="RegisterpriceModal" tabindex="-1" role="dialog" aria-labelledby="mainaccountidentifierModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        $('#RegisterpriceModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var url = button.attr("href");
+            var modal = $(this);
+            modal.find('.modal-content').load(url);
+        });
+        $('#RegisterpriceModal').on('hidden.bs.modal', function () {
+            $(this).removeData('bs.modal');
+            $('#RegisterpriceModal .modal-content').empty();
+        });
+        $("#Pricelisttable").DataTable();
+    </script>
+}

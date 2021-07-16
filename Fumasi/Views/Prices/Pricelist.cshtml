@@ -14,7 +14,7 @@
                         <h5 class="card-text text-sm font-weight-bold">Customer List</h5>
                     </div>
                     <div class="col-sm-5">
-                        <a href="@Url.Action("Addnewprice","Prices")" class="btn btn-sm btn-info text-white float-right mr-3" data-target="#RegisterpriceModal" data-toggle="modal">Add Price</a>
+                        <a href="@Url.Action("Addnewprice","Prices")" class="btn btn-sm btn-info text-white float-right mr-3" data-target="#RegisterpricelistModal" data-toggle="modal">Add Pricelist</a>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>@item.Pricename</td>
                                     <td>@item.Pricedescription</td>
-                                    <td><a href="@Url.Action("Editnewprice","Prices",new {Pricecode= sec.Encrypt(item.Pricecode.ToString()) })" class="btn btn-xs btn-info">Details</a></td>
+                                    <td><a href="@Url.Action("Pricedetails","Prices",new {Code= sec.Encrypt(item.Pricecode.ToString()) })" class="btn btn-xs btn-info mr-2">Details</a>&nbsp;<a href="@Url.Action("Editnewprice","Prices",new {Code= sec.Encrypt(item.Pricecode.ToString()) })" class="btn btn-xs btn-info" data-target="#RegisterpricelistModal" data-toggle="modal">Edit</a></td>
                                 </tr>
                             }
                         </tbody>
@@ -44,7 +44,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade mt-5" id="RegisterpriceModal" tabindex="-1" role="dialog" aria-labelledby="mainaccountidentifierModalLabel" aria-hidden="true">
+<div class="modal fade mt-5" id="RegisterpricelistModal" tabindex="-1" role="dialog" aria-labelledby="mainaccountidentifierModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
@@ -53,15 +53,15 @@
 </div>
 @section Scripts{
     <script type="text/javascript">
-        $('#RegisterpriceModal').on('show.bs.modal', function (event) {
+        $('#RegisterpricelistModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget);
             var url = button.attr("href");
             var modal = $(this);
             modal.find('.modal-content').load(url);
         });
-        $('#RegisterpriceModal').on('hidden.bs.modal', function () {
+        $('#RegisterpricelistModal').on('hidden.bs.modal', function () {
             $(this).removeData('bs.modal');
-            $('#RegisterpriceModal .modal-content').empty();
+            $('#RegisterpricelistModal .modal-content').empty();
         });
         $("#Pricelisttable").DataTable();
     </script>

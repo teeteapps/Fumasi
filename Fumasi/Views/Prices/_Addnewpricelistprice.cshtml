@@ -1,4 +1,4 @@
-﻿@model DBL.Entities.Pricelists
+﻿@model DBL.Entities.Pricelistprices
 @using DBL.Helpers;
 @{
     EncryptDecrypt sec = new EncryptDecrypt();
@@ -9,7 +9,7 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Editnewprice" asp-controller="Prices" method="post">
+<form asp-action="Addnewpricelistprice" asp-controller="Prices" method="post">
     <div class="modal-body">
         <div class="row">
             <input asp-for="Pricecode" hidden />
@@ -17,22 +17,22 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label asp-for="Pricename"></label>
-                    <input asp-for="Pricename" class="form-control form-control-sm" />
-                    <span asp-validation-for="Pricename" class="text-danger text-sm font-weight-light"></span>
+                    <label asp-for="Productcode"></label>
+                    <input asp-for="Productcode" class="form-control form-control-sm" />
+                    <span asp-validation-for="Productcode" class="text-danger text-sm font-weight-light"></span>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label asp-for="Pricedescription"></label>
-                    <input asp-for="Pricedescription" class="form-control form-control-sm" />
-                    <span asp-validation-for="Pricedescription" class="text-danger text-sm font-weight-light"></span>
+                    <label asp-for="Stationcode"></label>
+                    <input asp-for="Stationcode" class="form-control form-control-sm" />
+                    <span asp-validation-for="Stationcode" class="text-danger text-sm font-weight-light"></span>
                 </div>
             </div>
         </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-sm btn-info" value="Update">
+        <input type="submit" class="btn btn-sm btn-info" value="Save">
     </div>
 </form>

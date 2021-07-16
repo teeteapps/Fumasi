@@ -55,9 +55,7 @@ namespace DBL.Repositories
                 parameters.Add("@Pricecode", entity.Pricecode);
                 parameters.Add("@Pricename", entity.Pricename);
                 parameters.Add("@Pricedescription", entity.Pricedescription);
-                parameters.Add("@Datecreated", entity.Datecreated);
                 parameters.Add("@Datemodified", entity.Datemodified);
-                parameters.Add("@Createdby", entity.Createdby);
                 parameters.Add("@Modifiedby", entity.Modifiedby);
                 return connection.Query<GenericModel>("Usp_Editnewprice", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }

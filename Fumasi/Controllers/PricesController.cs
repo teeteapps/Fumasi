@@ -68,9 +68,10 @@ namespace Fumasi.Controllers
             return RedirectToAction("Pricelist", "Prices");
         }
         [HttpGet]
-        public async Task<IActionResult> Editnewprice(string Pricecode)
+        public async Task<IActionResult> Editnewprice(string Code)
         {
-            var data = await bl.Gettenantpricedata(Convert.ToInt64(sec.Decrypt(Pricecode)));
+            bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
+            var data = await bl.Gettenantpricedata(Convert.ToInt64(sec.Decrypt(Code)));
             return PartialView("_Editnewprice",data);
         }
         [HttpPost]
@@ -103,10 +104,17 @@ namespace Fumasi.Controllers
             return RedirectToAction("Pricelist", "Prices");
         }
         [HttpGet]
-        public async Task<IActionResult> Pricedetails(string Pricecode)
+        public async Task<IActionResult> Pricedetails(string Code)
         {
-            var data = await bl.Gettenantpricedata(Convert.ToInt64(sec.Decrypt(Pricecode)));
+            bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
+            var data = await bl.Gettenantpricedata(Convert.ToInt64(sec.Decrypt(Code)));
             return View(data);
+        }
+        public IActionResult Addnewpricelistprice(string Code)
+        {
+            Pricelistprices model = new Pricelistprices();
+            model.Pricecode = Convert.ToInt64(sec.Decrypt(Code));
+            return PartialView("_Addnewpricelistprice", model);
         }
     }
 }
