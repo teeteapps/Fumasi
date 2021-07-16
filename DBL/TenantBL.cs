@@ -94,6 +94,30 @@ namespace DBL
                 return Resp;
             });
         }
+        public async Task<GenericModel> Addnewdiscount(Discountlist obj)
+        {
+            return await Task.Run(() =>
+            {
+                var Resp = db.DiscountlistRepository.Addnewdiscount(obj);
+                return Resp;
+            });
+        }
+        public async Task<Discountlist> Gettenantdiscountdata(long Discountcode)
+        {
+            return await Task.Run(() =>
+            {
+                var Resp = db.DiscountlistRepository.Gettenantdiscountdata(Discountcode);
+                return Resp;
+            });
+        }
+        public async Task<GenericModel> Editnewdiscount(Discountlist obj)
+        {
+            return await Task.Run(() =>
+            {
+                var Resp = db.DiscountlistRepository.Editnewdiscount(obj);
+                return Resp;
+            });
+        }
         #endregion
 
         #region Customers

@@ -8,5 +8,8 @@ namespace DBL.Repositories
     public interface IDiscountlistRepository
     {
         IEnumerable<Discountlist> Gettenantdiscountlists();
+        GenericModel Addnewdiscount(Discountlist entity);
+        Discountlist Gettenantdiscountdata(long Discountcode);
+        GenericModel Editnewdiscount(Discountlist entity);
     }
 }

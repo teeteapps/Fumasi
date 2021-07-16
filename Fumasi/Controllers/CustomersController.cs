@@ -49,7 +49,6 @@ namespace Fumasi.Controllers
             {
                 model.Modifiedby = SessionUserData.UserCode;
                 model.Createdby = SessionUserData.UserCode;
-                model.Tenantcode = SessionUserData.Tenantcode;
                 model.Datecreated = DateTime.UtcNow;
                 model.Datemodified = DateTime.UtcNow;
                 var resp = await bl.AddnewCustomers(model);

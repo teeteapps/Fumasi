@@ -29,7 +29,6 @@ namespace DBL.Repositories
             {
                 connection.Open();
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@Tenantcode", entity.Tenantcode);
                 parameters.Add("@Firstname", entity.Firstname);
                 parameters.Add("@Lastname", entity.Lastname);
                 parameters.Add("@Emailaddress", entity.Emailaddress);

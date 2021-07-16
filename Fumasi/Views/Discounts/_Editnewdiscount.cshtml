@@ -1,0 +1,38 @@
+﻿@model DBL.Entities.Discountlist
+@using DBL.Helpers;
+@{
+    EncryptDecrypt sec = new EncryptDecrypt();
+}
+<div class="modal-header">
+    <h5 class="text-sm modal-title" id="AllagreementsModalLabel">Register new Price</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form asp-action="Editnewdiscount" asp-controller="Discounts" method="post">
+    <div class="modal-body">
+        <div class="row">
+            <input asp-for="Discountcode" hidden />
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Discountname"></label>
+                    <input asp-for="Discountname" class="form-control form-control-sm" />
+                    <span asp-validation-for="Discountname" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label asp-for="Discountdescription"></label>
+                    <input asp-for="Discountdescription" class="form-control form-control-sm" />
+                    <span asp-validation-for="Discountdescription" class="text-danger text-sm font-weight-light"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-sm btn-info" value="Update">
+    </div>
+</form>

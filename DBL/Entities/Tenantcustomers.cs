@@ -12,7 +12,6 @@ namespace DBL.Entities
         [NotMapped]
         public static string TableName { get { return "Customers"; } }
         public long Customercode { get; set; }
-        public long Tenantcode { get; set; }
         [Display(Name ="Firstname")]
         public string Firstname { get; set; }
         [Display(Name = "Lastname")]

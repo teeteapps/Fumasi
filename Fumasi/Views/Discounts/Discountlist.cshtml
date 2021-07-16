@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DBL.Entities.Discountlist>
+@using DBL.Helpers;
+@{
+    ViewData["Title"] = "Discountlist";
+    Layout = "~/Views/Shared/_Layoutauth.cshtml";
+    EncryptDecrypt sec = new EncryptDecrypt();
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <h5 class="card-text text-sm font-weight-bold">Discount List</h5>
+                    </div>
+                    <div class="col-sm-5">
+                        <a href="@Url.Action("Addnewdiscount","Discounts")" class="btn btn-sm btn-info text-white float-right mr-3" data-target="#RegisterdiscountpricelistModal" data-toggle="modal">Add Discountlist</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div clas>
+                    <table class="table table-bordered table-striped table-responsive-sm table-sm" id="Pricelisttable">
+                        <thead>
+                            <tr class="font-weight-light">
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Discountname</td>
+                                    <td>@item.Discountdescription</td>
+                                    <td><a href="@Url.Action("Pricedetails","Discounts",new {Code= sec.Encrypt(item.Discountcode.ToString()) })" class="btn btn-xs btn-info mr-2">Details</a>&nbsp;<a href="@Url.Action("Editnewdiscount","Discounts",new {Code= sec.Encrypt(item.Discountcode.ToString()) })" class="btn btn-xs btn-info" data-target="#RegisterdiscountpricelistModal" data-toggle="modal">Edit</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade mt-5" id="RegisterdiscountpricelistModal" tabindex="-1" role="dialog" aria-labelledby="mainaccountidentifierModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        $('#RegisterdiscountpricelistModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var url = button.attr("href");
+            var modal = $(this);
+            modal.find('.modal-content').load(url);
+        });
+        $('#RegisterdiscountpricelistModal').on('hidden.bs.modal', function () {
+            $(this).removeData('bs.modal');
+            $('#RegisterdiscountpricelistModal .modal-content').empty();
+        });
+        $("#Pricelisttable").DataTable();
+    </script>
+}
+
