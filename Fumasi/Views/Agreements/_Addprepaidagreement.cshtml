@@ -2,6 +2,10 @@
 @using DBL.Helpers;
 @{
     EncryptDecrypt sec = new EncryptDecrypt();
+    var Limittypes = ViewData["limittypes"] as List<SelectListItem>;
+    var Pricelist = ViewData["pricelist"] as List<SelectListItem>;
+    var Discountlist = ViewData["discountlist"] as List<SelectListItem>;
+    var Loyaltygrouping = ViewData["Loyaltylist"] as List<SelectListItem>;
 }
 <div class="modal-header">
     <h5 class="text-sm modal-title" id="AllagreementsModalLabel">Prepaid Agreement Details</h5>
@@ -9,11 +13,11 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<form asp-action="Prepaidagreement" asp-controller="Agreements" method="post" enctype="multipart/form-data">
+<form asp-action="Addprepaidagreement" asp-controller="Agreements" method="post" enctype="multipart/form-data">
     <div class="modal-body">
         <div class="row">
             <div class="col-sm-12">
-                <input asp-for="Custcode" hidden />
+                <input asp-for="Customercode" hidden />
             </div>
         </div>
         <div class="row">
@@ -29,21 +33,15 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Limit Value Type</label>
-                    <select asp-for="Agreementtype" class="form-control form-control-sm">
-                        <option value="0">Prepaid Amount</option>
-                        <option value="1">Prepaid Litres</option>
+                    <select asp-for="Typecode" class="form-control form-control-sm" asp-items="@Limittypes">
                     </select>
-                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Loyalty Grouping</label>
-                    <select asp-for="Agreementtype" class="form-control form-control-sm">
-                        <option value="0">Prepaid Amount</option>
-                        <option value="1">Prepaid Litres</option>
+                    <select asp-for="Loyoltycode" class="form-control form-control-sm" asp-items="@Loyaltygrouping">
                     </select>
-                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -51,30 +49,23 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Price list</label>
-                    <select asp-for="Agreementtype" class="form-control form-control-sm">
-                        <option value="0">Prepaid Amount</option>
-                        <option value="1">Prepaid Litres</option>
+                    <select asp-for="Pricelistcode" class="form-control form-control-sm" asp-items="@Pricelist">
                     </select>
-                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Discount List</label>
-                    <select asp-for="Agreementtype" class="form-control form-control-sm">
-                        <option value="0">Prepaid Amount</option>
-                        <option value="1">Prepaid Litres</option>
+                    <select asp-for="Discountlistcode" class="form-control form-control-sm" asp-items="@Discountlist">
                     </select>
-                    <span asp-validation-for="Agreementtype" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <label asp-for="Agreementdocfile"></label>
-                    <input asp-for="Agreementdocfile" type="file" />
-                    <span asp-validation-for="Agreementdocfile" class="text-danger"></span>
+                    <label asp-for="Agreementfile"></label>
+                    <input asp-for="Agreementfile" type="file" />
                 </div>
             </div>
         </div>

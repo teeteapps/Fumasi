@@ -38,15 +38,16 @@ namespace Fumasi.Controllers
         }
 
         [HttpGet]
-        public IActionResult Prepaidagreement(string customercode)
+        public IActionResult Prepaidagreement(string Code)
         {
+            LoadParams();
             bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
             Customerprepaidagreement model = new Customerprepaidagreement();
-            model.Custcode = Convert.ToInt64(sec.Decrypt(customercode));
-            return PartialView("_Prepaidagreement", model);
+            model.Customercode = Convert.ToInt64(sec.Decrypt(Code));
+            return PartialView("_Addprepaidagreement", model);
         }
         [HttpPost]
-        public async Task<IActionResult> Prepaidagreement(Customerprepaidagreement model)
+        public async Task<IActionResult> Addprepaidagreement(Customerprepaidagreement model)
         {
             bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
             try
@@ -55,10 +56,10 @@ namespace Fumasi.Controllers
                 var filepath = "";
                 var newFileName = "";
                 string uploadPath = "~/Agreementdocuments/";
-                if (model.Agreementdocfile !=null)
+                if (model.Agreementfile !=null)
                 {
                     //Getting FileName
-                    fileName = Path.GetFileName(model.Agreementdocfile.FileName);
+                    fileName = Path.GetFileName(model.Agreementfile.FileName);
 
                     //Assigning Unique Filename (Guid)
                     var myUniqueFileName = Convert.ToString(Guid.NewGuid());
@@ -74,15 +75,15 @@ namespace Fumasi.Controllers
 
                     using (FileStream fs = System.IO.File.Create(filepath))
                     {
-                        model.Agreementdocfile.CopyTo(fs);
+                        model.Agreementfile.CopyTo(fs);
                         fs.Flush();
                     }
                     var uploadfilePath = Path.Combine(uploadPath, newFileName);
                     model.Agreementdoc = uploadfilePath;
                 }
-                model.Modifiedby = SessionUserData.UserName;
-                model.Customercode = model.Custcode;
-                model.Createdby = SessionUserData.UserName;
+                model.Modifiedby = SessionUserData.UserCode;
+                model.Customercode = model.Customercode;
+                model.Createdby = SessionUserData.UserCode;
                 model.Datecreated = DateTime.UtcNow;
                 model.Datemodified = DateTime.UtcNow;
                 var resp = await bl.Addnewprepaidagreement(model);
@@ -337,6 +338,36 @@ namespace Fumasi.Controllers
                 Value = x.Value
             }).ToList();
             ViewData["identifiertypes"] = list;
+            list = bl.GetListModel(ListModelType.limittypes).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["limittypes"] = list;
+            list = bl.GetListModel(ListModelType.limittypes).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["limittypes"] = list;
+            list = bl.GetListModel(ListModelType.pricelist).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["pricelist"] = list;
+            list = bl.GetListModel(ListModelType.discountlist).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["discountlist"] = list;
+            list = bl.GetListModel(ListModelType.Loyaltylist).Result.Select(x => new SelectListItem
+            {
+                Text = x.Text,
+                Value = x.Value
+            }).ToList();
+            ViewData["Loyaltylist"] = list;
         }
         #endregion
     }

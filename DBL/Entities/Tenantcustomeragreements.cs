@@ -56,16 +56,18 @@ namespace DBL.Entities
 		public static string TableName { get { return "Customerprepaidagreement"; } }
 		public long Agreementcode { get; set; }
 		public long Customercode { get; set; }
-		public long Custcode { get; set; }
-		public long Agreementtype { get; set; }
+		public long Typecode { get; set; }
+		public long Loyoltycode { get; set; }
+		public long Pricelistcode { get; set; }
+		public long Discountlistcode { get; set; }
 		public string Agreementdesc { get; set; }
-		public IFormFile Agreementdocfile { get; set; }
+		public IFormFile Agreementfile { get; set; }
 		public string Agreementdoc { get; set; }
 		public string Notes { get; set; }
 		public DateTime Datecreated { get; set; }
 		public DateTime Datemodified { get; set; }
-		public string Createdby { get; set; }
-		public string Modifiedby { get; set; }
+		public long Createdby { get; set; }
+		public long Modifiedby { get; set; }
 	}
 
 	[Table("Customerprepaidagreementdata")]

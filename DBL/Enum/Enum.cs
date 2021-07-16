@@ -18,7 +18,11 @@ namespace DBL.Enum
         phoneprefix = 1,
         tenantstations = 2,
         identifiers = 3,
-        identifiertypes = 4
+        identifiertypes = 4,
+        limittypes = 5,
+        pricelist = 6,
+        discountlist = 7,
+        Loyaltylist = 8
 
     }
     public enum CartStatus
