@@ -164,6 +164,7 @@ namespace Fumasi.Controllers
             return View(data);
         }
         public async Task<IActionResult> Getagreementaccounts(long Code)
+        
         {
             bl = new TenantBL(Util.GetTenantDbConnString(SessionUserData.connId, SessionUserData.connKey, SessionUserData.connData));
             var draw = Request.Form["draw"].FirstOrDefault();
@@ -176,16 +177,29 @@ namespace Fumasi.Controllers
             int skip = start != null ? Convert.ToInt32(start) : 0;
             int recordsTotal = 0;
             var accountsdata = await bl.Getagreementaccountsdata(Code);
+            List<Vwagreementaccounts> accounts= new List<Vwagreementaccounts>();
+            foreach (var item in accountsdata)
+            {
+                var ca = new Vwagreementaccounts()
+                {
+                    accountCode = item.accountCode,
+                    accountAction = string.Format(@"<a href='/Agreements/Agreementaccountandpolicies?Code={0}'>{1}</a>", sec.Encrypt(item.accountCode.ToString()),item.accountNumber),
+                    identifierSno = item.identifierSno,
+                    identifierUid = item.identifierUid,
+                    accountNumber = item.accountNumber,
+                };
+                accounts.Add(ca);
+            }
             //if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDirection)))
             //{
-            //    accountsdata = accountsdata.OrderBy(sortColumn + " " + sortColumnDirection);
+            //    accounts = accounts.OrderBy(sortColumn + " " + sortColumnDirection);
             //}
             if (!string.IsNullOrEmpty(searchValue))
             {
-                accountsdata = accountsdata.Where(m => m.identifierSno.Contains(searchValue));
+                accounts = accounts.Where(m => m.identifierSno.Contains(searchValue)).ToList();
             }
-            recordsTotal = accountsdata.Count();
-            var data = accountsdata.Skip(skip).Take(pageSize).ToList();
+            recordsTotal = accounts.Count();
+            var data = accounts.Skip(skip).Take(pageSize).ToList();
             var jsonData = new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data };
             return Ok(jsonData);
         }
@@ -193,10 +207,10 @@ namespace Fumasi.Controllers
         #endregion
 
         #region Account and Policies
-        public IActionResult Agreementaccountandpolicies(string accountcode)
+        public IActionResult Agreementaccountandpolicies(string Code)
         {
             Customeragreementaccountandpolicies model = new Customeragreementaccountandpolicies();
-            model.Acccode = Convert.ToInt64(sec.Decrypt(accountcode));
+            model.Acccode = Convert.ToInt64(sec.Decrypt(Code));
             return View(model);
         }
         #region Account Identifiers

@@ -6,149 +6,138 @@
     EncryptDecrypt sec = new EncryptDecrypt();
 }
 <div class="row">
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="text-sm">Account Data and Policies</h5>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-6">
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
                         <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-sm-7">
-                                                <h5 class="text-sm">Account Identifiers</h5>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <a asp-action="Addnewaccountidentifier" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Identifier</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-
-                                    </div>
-                                </div>
+                            <div class="col-sm-7">
+                                <h5 class="text-sm">Account Identifiers</h5>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-sm-7">
-                                                <h5 class="text-sm">Account Employees</h5>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <a asp-action="Addnewaccountemployees" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Employee</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-sm-7">
-                                                <h5 class="text-sm">Account Equipments</h5>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <a asp-action="Addnewaccountequipments" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Equipment</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-
-                                    </div>
-                                </div>
+                            <div class="col-sm-5">
+                                <a asp-action="Addnewaccountidentifier" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Identifier</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-sm-7">
-                                                <h5 class="text-sm">What can the account be used for and how much can be spent ?</h5>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <a asp-action="Addnewaccountproductpolicy" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right text-sm" data-target="#allpoliciesModal" data-toggle="modal">Add Policy</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
+                    <div class="card-body">
 
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <h5 class="text-sm">Account Employees</h5>
+                            </div>
+                            <div class="col-sm-5">
+                                <a asp-action="Addnewaccountemployees" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Employee</a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-sm-7">
-                                                <h5 class="text-sm">Where can the account be used ?</h5>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <a asp-action="Addnewaccountstationpolicy" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Policy</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
+                    </div>
+                    <div class="card-body">
 
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <h5 class="text-sm">Account Equipments</h5>
+                            </div>
+                            <div class="col-sm-5">
+                                <a asp-action="Addnewaccountequipments" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Equipment</a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-sm-7">
-                                                <h5 class="text-sm">What is the frequency of using the account ?</h5>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <a asp-action="Addnewaccountfrequencypolicy" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Policy</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
+                    </div>
+                    <div class="card-body">
 
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <h5 class="text-sm">What can the account be used for and how much can be spent ?</h5>
+                            </div>
+                            <div class="col-sm-5">
+                                <a asp-action="Addnewaccountproductpolicy" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right text-sm" data-target="#allpoliciesModal" data-toggle="modal">Add Policy</a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="row">
-                                            <div class="col-sm-7">
-                                                <h5 class="text-sm">When can the account be used ?</h5>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <a asp-action="Addnewaccountdaypolicy" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Policy</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
+                    </div>
+                    <div class="card-body">
 
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <h5 class="text-sm">Where can the account be used ?</h5>
+                            </div>
+                            <div class="col-sm-5">
+                                <a asp-action="Addnewaccountstationpolicy" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Policy</a>
                             </div>
                         </div>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <h5 class="text-sm">What is the frequency of using the account ?</h5>
+                            </div>
+                            <div class="col-sm-5">
+                                <a asp-action="Addnewaccountfrequencypolicy" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <h5 class="text-sm">When can the account be used ?</h5>
+                            </div>
+                            <div class="col-sm-5">
+                                <a asp-action="Addnewaccountdaypolicy" asp-controller="Agreements" asp-route-accntcode="@Model.Acccode" class="btn btn-sm btn-info float-right" data-target="#allpoliciesModal" data-toggle="modal">Add Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
                     </div>
                 </div>
             </div>
@@ -159,7 +148,7 @@
 <div class="modal fade mt-5" id="allpoliciesModal" tabindex="-1" role="dialog" aria-labelledby="allpoliciesModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            
+
         </div>
     </div>
 </div>

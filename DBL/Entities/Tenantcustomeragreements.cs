@@ -107,6 +107,7 @@ namespace DBL.Entities
 		public long accountCode { get; set; }
 		public string identifierUid { get; set; }
 		public long agreementCode { get; set; }
+		public string accountAction { get; set; }
 		
 
 	}

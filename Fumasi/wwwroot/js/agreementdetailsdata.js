@@ -14,12 +14,10 @@
             "searchable": false
         }],
         "columns": [
-            { "data": "accountCode", "name": "accountCode", "autoWidth": true },
-            {
-                "render": function (data, row) {
-                    return "<a href='/Agreements/Getagreementaccounts?Code='" + accountCode + "''>Account</a>"; }
-            },
-            { "data": "identifierSno", "name": "Account Mask", "autoWidth": true }
+            { "data": "accountCode", "name": "account Action", "autoWidth": true },
+            { "data": "accountAction", "name": "account Action", "autoWidth": true },
+            { "data": "identifierSno", "name": "Account Mask", "autoWidth": true },
+            { "data": "identifierUid", "name": "Card Uid", "autoWidth": true }
         ]
     });
 });
